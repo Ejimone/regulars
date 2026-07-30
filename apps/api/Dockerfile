@@ -7,6 +7,10 @@ COPY pyproject.toml ./
 COPY app ./app
 RUN pip install --no-cache-dir -e .
 
+COPY alembic.ini ./
+COPY alembic ./alembic
+COPY scripts ./scripts
+COPY fixtures ./fixtures
 COPY tests ./tests
 
 EXPOSE 8000

@@ -22,5 +22,14 @@ lint:
 	cd apps/api && ruff check . && ruff format --check . && mypy
 	cd apps/web && npm run lint && npm run typecheck
 
+fixtures: ## Regenerate demo-business fixtures with Groq (fixtures are committed)
+	cd apps/api && .venv/bin/python -m scripts.generate_fixtures
+
+seed: ## Load fixtures into the database (computes embeddings locally)
+	cd apps/api && .venv/bin/python -m scripts.seed
+
+migrate: ## Apply database migrations
+	cd apps/api && .venv/bin/alembic upgrade head
+
 eval: ## Run the eval harness (lands in M2)
 	@echo "eval harness arrives in M2"

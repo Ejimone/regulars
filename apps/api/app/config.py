@@ -6,13 +6,19 @@ so misconfiguration fails loudly at startup instead of quietly at runtime.
 """
 
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+# The .env lives at the repo root; scripts and alembic run from apps/api, the
+# API itself may run from the root. In containers neither file exists and
+# values come from real environment variables (which always take precedence).
+_REPO_ROOT_ENV = Path(__file__).resolve().parent.parent.parent.parent / ".env"
+
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=(_REPO_ROOT_ENV, ".env"), extra="ignore")
 
     # Postgres DSN, e.g. postgresql+psycopg://regulars:regulars@localhost:5432/regulars
     database_url: str = Field(min_length=1)

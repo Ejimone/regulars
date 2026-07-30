@@ -4,7 +4,7 @@
 
 Small businesses get messages everywhere — Google reviews, Instagram DMs, contact forms — and every one deserves a fast, on-brand reply. Regulars pulls them into one inbox, drafts a reply grounded in the business's *actual* information (hours, services, pricing, policies) via lightweight RAG, and shows it in a dashboard for one-tap **approve / edit / send**. When it isn't confident in the facts, it says so and flags a human instead of guessing.
 
-> **Status: M0 — skeleton.** Milestones: M0 scaffold → M1 data + seed → M2 retrieval/draft pipeline + evals → M3 dashboard → M4 deploy + demo.
+> **Status: M1 — data layer.** Milestones: ~~M0 scaffold~~ → ~~M1 data + seed~~ → M2 retrieval/draft pipeline + evals → M3 dashboard → M4 deploy + demo.
 
 ## Architecture
 

@@ -7,6 +7,12 @@ dependencies = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
     "pydantic-settings>=2.4",
+    "sqlalchemy>=2.0",
+    "alembic>=1.13",
+    "psycopg[binary]>=3.2",
+    "pgvector>=0.3",
+    "fastembed>=0.4",
+    "groq>=0.13",
 ]
 
 [project.optional-dependencies]
@@ -43,6 +49,10 @@ select = [
 python_version = "3.12"
 strict = true
 packages = ["app"]
+
+[[tool.mypy.overrides]]
+module = ["pgvector.*", "fastembed.*"]
+ignore_missing_imports = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
