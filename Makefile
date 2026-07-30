@@ -13,7 +13,7 @@ dev-api: ## Run the API natively with reload (needs `make up` db or local postgr
 	cd apps/api && uvicorn app.main:app --reload --port 8000
 
 dev-web: ## Run the web app natively
-	cd apps/web && npm run dev
+	cd apps/web && pnpm dev
 
 test:
 	cd apps/api && python -m pytest

@@ -13,6 +13,7 @@ dependencies = [
     "pgvector>=0.3",
     "fastembed>=0.4",
     "groq>=0.13",
+    "email-validator>=2.0",
 ]
 
 [project.optional-dependencies]
