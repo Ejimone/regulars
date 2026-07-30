@@ -38,6 +38,61 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/tenants/{slug}/stats": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Tenant Stats */
+        get: operations["tenant_stats_api_tenants__slug__stats_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/tenants/{slug}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Documents */
+        get: operations["list_documents_api_tenants__slug__documents_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/documents/{document_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Update Document
+         * @description Edit a knowledge-base document and re-index it (re-chunk + re-embed)
+         *     synchronously, so a successful response means retrieval sees the new text.
+         */
+        put: operations["update_document_api_documents__document_id__put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/messages/{message_id}": {
         parameters: {
             query?: never;
@@ -67,6 +122,10 @@ export interface paths {
         /**
          * Draft Message
          * @description Runs the pipeline (if not yet run) and streams the draft as SSE.
+         *
+         *     `force=true` regenerates: it re-runs the pipeline on an already-drafted
+         *     message, appending a new drafts row (the old one stays for the audit
+         *     trail). Restricted to drafted/flagged so a sent message can't be un-sent.
          *
          *     Streaming is presentation-layer: the pipeline produces the complete,
          *     validated, cited draft first (Groq is fast), then the text streams to the
@@ -193,6 +252,37 @@ export interface components {
              */
             message_id: string;
         };
+        /** DocumentOut */
+        DocumentOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Title */
+            title: string;
+            /** Kind */
+            kind: string;
+            /** Content */
+            content: string;
+            /** Chunk Count */
+            chunk_count: number;
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** DocumentUpdateIn */
+        DocumentUpdateIn: {
+            /** Content */
+            content: string;
+        };
         /** DraftOut */
         DraftOut: {
             /**
@@ -272,6 +362,17 @@ export interface components {
             /** Decision */
             decision: string | null;
         };
+        /** MessageListPage */
+        MessageListPage: {
+            /** Items */
+            items: components["schemas"]["MessageListItem"][];
+            /** Total */
+            total: number;
+            /** Limit */
+            limit: number;
+            /** Offset */
+            offset: number;
+        };
         /** ResetOut */
         ResetOut: {
             /** Ok */
@@ -292,6 +393,33 @@ export interface components {
             ok: boolean;
             /** Was Modified */
             was_modified: boolean;
+        };
+        /** StatsOut */
+        StatsOut: {
+            /** Messages Total */
+            messages_total: number;
+            /** By Status */
+            by_status: {
+                [key: string]: number;
+            };
+            /** By Channel */
+            by_channel: {
+                [key: string]: number;
+            };
+            /** Drafted */
+            drafted: number;
+            /** Refused */
+            refused: number;
+            /** Avg Latency Ms */
+            avg_latency_ms: number | null;
+            /** Avg Confidence */
+            avg_confidence: number | null;
+            /** Sends */
+            sends: number;
+            /** Edited Sends */
+            edited_sends: number;
+            /** Edit Rate */
+            edit_rate: number | null;
         };
         /** TenantOut */
         TenantOut: {
@@ -348,6 +476,9 @@ export interface operations {
         parameters: {
             query?: {
                 status?: string | null;
+                q?: string | null;
+                limit?: number;
+                offset?: number;
             };
             header?: never;
             path: {
@@ -363,7 +494,104 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["MessageListItem"][];
+                    "application/json": components["schemas"]["MessageListPage"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    tenant_stats_api_tenants__slug__stats_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_documents_api_tenants__slug__documents_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_document_api_documents__document_id__put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                document_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentUpdateIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["DocumentOut"];
                 };
             };
             /** @description Validation Error */
@@ -410,7 +638,9 @@ export interface operations {
     };
     draft_message_api_messages__message_id__draft_post: {
         parameters: {
-            query?: never;
+            query?: {
+                force?: boolean;
+            };
             header?: never;
             path: {
                 message_id: string;

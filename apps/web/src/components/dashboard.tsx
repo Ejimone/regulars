@@ -45,7 +45,7 @@ export default function Dashboard() {
     const { data } = await api.GET("/api/tenants/{slug}/messages", {
       params: { path: { slug: tenant } },
     });
-    if (data) setMessages(data);
+    if (data) setMessages(data.items);
   }, [tenant]);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Dashboard() {
     void api
       .GET("/api/tenants/{slug}/messages", { params: { path: { slug: tenant } } })
       .then(({ data }) => {
-        if (data) setMessages(data);
+        if (data) setMessages(data.items);
       });
   }, [tenant]);
 

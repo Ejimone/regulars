@@ -14,10 +14,9 @@ from pathlib import Path
 from sqlalchemy import delete, select
 
 from app.channels import get_adapter
-from app.db.models import Chunk, Document, Message, Tenant
+from app.db.models import Document, Message, Tenant
 from app.db.session import get_sessionmaker
-from app.rag.chunking import chunk_document
-from app.rag.embedder import get_embedder
+from app.rag.indexing import index_document
 
 FIXTURES_DIR = Path(__file__).resolve().parent.parent / "fixtures"
 
@@ -25,7 +24,6 @@ FIXTURES_DIR = Path(__file__).resolve().parent.parent / "fixtures"
 def seed_business(business_dir: Path) -> None:
     business = json.loads((business_dir / "business.json").read_text())
     messages = json.loads((business_dir / "messages.json").read_text())
-    embedder = get_embedder()
 
     with get_sessionmaker()() as session:
         existing = session.scalar(select(Tenant).where(Tenant.slug == business["slug"]))
@@ -46,20 +44,7 @@ def seed_business(business_dir: Path) -> None:
             )
             session.add(document)
             session.flush()
-
-            texts = chunk_document(doc_fixture["content"], kind=doc_fixture["kind"])
-            embeddings = embedder.embed_passages(texts)
-            for position, (text, embedding) in enumerate(zip(texts, embeddings, strict=True)):
-                session.add(
-                    Chunk(
-                        tenant_id=tenant.id,
-                        document_id=document.id,
-                        position=position,
-                        content=text,
-                        embedding=embedding,
-                    )
-                )
-            chunk_count += len(texts)
+            chunk_count += index_document(session, document)
 
         # Only the payload crosses this line — exactly what a live webhook would
         # deliver. The fixture's other fields are eval ground truth, not inputs.

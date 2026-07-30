@@ -54,6 +54,40 @@ class MessageDetail(BaseModel):
     draft: DraftOut | None
 
 
+class MessageListPage(BaseModel):
+    items: list[MessageListItem]
+    total: int
+    limit: int
+    offset: int
+
+
+class StatsOut(BaseModel):
+    messages_total: int
+    by_status: dict[str, int]  # zero-filled over MESSAGE_STATUSES
+    by_channel: dict[str, int]  # zero-filled over CHANNELS
+    drafted: int  # latest draft per message with decision == 'drafted'
+    refused: int  # latest draft per message with decision == 'refused'
+    avg_latency_ms: int | None
+    avg_confidence: float | None
+    sends: int
+    edited_sends: int
+    edit_rate: float | None  # edited_sends / sends, None when sends == 0
+
+
+class DocumentOut(BaseModel):
+    id: uuid.UUID
+    title: str
+    kind: str
+    content: str
+    chunk_count: int
+    created_at: datetime
+    updated_at: datetime
+
+
+class DocumentUpdateIn(BaseModel):
+    content: str = Field(min_length=1, max_length=20000)
+
+
 class SendIn(BaseModel):
     final_content: str = Field(min_length=1)
 

@@ -11,24 +11,38 @@ from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
-from sqlalchemy import func, select
+from sqlalchemy import func, or_, select
 from sqlalchemy.orm import Session
 
 from app.channels import get_adapter
-from app.db.models import Document, Draft, Edit, Message, Tenant
+from app.db.models import (
+    CHANNELS,
+    MESSAGE_STATUSES,
+    Chunk,
+    Document,
+    Draft,
+    Edit,
+    Message,
+    Tenant,
+)
 from app.db.session import get_sessionmaker
 from app.llm import get_llm
 from app.pipeline.run import process_message
+from app.rag.indexing import index_document
 from app.schemas import (
     CitationOut,
     ContactIn,
     ContactOut,
+    DocumentOut,
+    DocumentUpdateIn,
     DraftOut,
     MessageDetail,
     MessageListItem,
+    MessageListPage,
     ResetOut,
     SendIn,
     SendOut,
+    StatsOut,
     TenantOut,
 )
 
@@ -83,15 +97,33 @@ def list_tenants(db: DbDep) -> list[TenantOut]:
 
 @router.get("/tenants/{slug}/messages")
 def list_messages(
-    slug: str, db: DbDep, status: str | None = None
-) -> list[MessageListItem]:
+    slug: str,
+    db: DbDep,
+    status: str | None = None,
+    q: str | None = None,
+    limit: int = 50,
+    offset: int = 0,
+) -> MessageListPage:
     tenant = _tenant_or_404(db, slug)
-    query = (
-        select(Message).where(Message.tenant_id == tenant.id).order_by(Message.received_at.desc())
-    )
+    limit = min(max(limit, 1), 100)
+    offset = max(offset, 0)
+
+    filters = [Message.tenant_id == tenant.id]
     if status:
-        query = query.where(Message.status == status)
-    messages = db.scalars(query).all()
+        filters.append(Message.status == status)
+    if q:
+        like = q.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
+        pattern = f"%{like}%"
+        filters.append(or_(Message.author_name.ilike(pattern), Message.content.ilike(pattern)))
+
+    total = db.scalar(select(func.count()).select_from(Message).where(*filters)) or 0
+    messages = db.scalars(
+        select(Message)
+        .where(*filters)
+        .order_by(Message.received_at.desc())
+        .limit(limit)
+        .offset(offset)
+    ).all()
 
     # latest draft decision per message, one query
     decisions: dict[uuid.UUID, str] = {}
@@ -102,19 +134,133 @@ def list_messages(
     ):
         decisions[draft.message_id] = draft.decision
 
-    return [
-        MessageListItem(
-            id=m.id,
-            channel=m.channel,
-            author_name=m.author_name,
-            preview=m.content[:120],
-            rating=m.rating,
-            status=m.status,
-            received_at=m.received_at,
-            decision=decisions.get(m.id),
+    return MessageListPage(
+        items=[
+            MessageListItem(
+                id=m.id,
+                channel=m.channel,
+                author_name=m.author_name,
+                preview=m.content[:120],
+                rating=m.rating,
+                status=m.status,
+                received_at=m.received_at,
+                decision=decisions.get(m.id),
+            )
+            for m in messages
+        ],
+        total=total,
+        limit=limit,
+        offset=offset,
+    )
+
+
+@router.get("/tenants/{slug}/stats")
+def tenant_stats(slug: str, db: DbDep) -> StatsOut:
+    tenant = _tenant_or_404(db, slug)
+
+    by_status = dict.fromkeys(MESSAGE_STATUSES, 0)
+    for status, count in db.execute(
+        select(Message.status, func.count())
+        .where(Message.tenant_id == tenant.id)
+        .group_by(Message.status)
+    ):
+        by_status[status] = count
+
+    by_channel = dict.fromkeys(CHANNELS, 0)
+    for channel, count in db.execute(
+        select(Message.channel, func.count())
+        .where(Message.tenant_id == tenant.id)
+        .group_by(Message.channel)
+    ):
+        by_channel[channel] = count
+
+    # regenerate appends drafts, so decisions count the latest draft per message
+    latest = (
+        select(Draft.message_id, func.max(Draft.created_at).label("mc"))
+        .where(Draft.tenant_id == tenant.id)
+        .group_by(Draft.message_id)
+        .subquery()
+    )
+    decisions: dict[str, int] = {}
+    for decision, count in db.execute(
+        select(Draft.decision, func.count())
+        .join(
+            latest,
+            (Draft.message_id == latest.c.message_id) & (Draft.created_at == latest.c.mc),
         )
-        for m in messages
-    ]
+        .where(Draft.tenant_id == tenant.id)
+        .group_by(Draft.decision)
+    ):
+        decisions[decision] = count
+
+    avg_latency, avg_confidence = db.execute(
+        select(func.avg(Draft.latency_ms), func.avg(Draft.confidence)).where(
+            Draft.tenant_id == tenant.id
+        )
+    ).one()
+
+    sends, edited_sends = db.execute(
+        select(func.count(), func.count().filter(Edit.was_modified)).where(
+            Edit.tenant_id == tenant.id
+        )
+    ).one()
+
+    return StatsOut(
+        messages_total=sum(by_status.values()),
+        by_status=by_status,
+        by_channel=by_channel,
+        drafted=decisions.get("drafted", 0),
+        refused=decisions.get("refused", 0),
+        avg_latency_ms=round(avg_latency) if avg_latency is not None else None,
+        avg_confidence=round(float(avg_confidence), 3) if avg_confidence is not None else None,
+        sends=sends,
+        edited_sends=edited_sends,
+        edit_rate=round(edited_sends / sends, 3) if sends else None,
+    )
+
+
+def _document_out(document: Document, chunk_count: int) -> DocumentOut:
+    return DocumentOut(
+        id=document.id,
+        title=document.title,
+        kind=document.kind,
+        content=document.content,
+        chunk_count=chunk_count,
+        created_at=document.created_at,
+        updated_at=document.updated_at,
+    )
+
+
+@router.get("/tenants/{slug}/documents")
+def list_documents(slug: str, db: DbDep) -> list[DocumentOut]:
+    tenant = _tenant_or_404(db, slug)
+    documents = db.scalars(
+        select(Document)
+        .where(Document.tenant_id == tenant.id)
+        .order_by(Document.kind, Document.title)
+    ).all()
+    chunk_counts: dict[uuid.UUID, int] = {}
+    for document_id, count in db.execute(
+        select(Chunk.document_id, func.count())
+        .where(Chunk.tenant_id == tenant.id)
+        .group_by(Chunk.document_id)
+    ):
+        chunk_counts[document_id] = count
+    return [_document_out(d, chunk_counts.get(d.id, 0)) for d in documents]
+
+
+@router.put("/documents/{document_id}")
+def update_document(document_id: uuid.UUID, body: DocumentUpdateIn, db: DbDep) -> DocumentOut:
+    """Edit a knowledge-base document and re-index it (re-chunk + re-embed)
+    synchronously, so a successful response means retrieval sees the new text."""
+    document = db.get(Document, document_id)
+    if document is None:
+        raise HTTPException(404, "document not found")
+    document.content = body.content
+    chunk_count = index_document(db, document)
+    db.commit()
+    db.refresh(document)
+    return _document_out(document, chunk_count)
 
 
 @router.get("/messages/{message_id}")
@@ -140,8 +286,12 @@ def _sse(event: str, data: Any) -> str:
 
 
 @router.post("/messages/{message_id}/draft")
-def draft_message(message_id: uuid.UUID) -> StreamingResponse:
+def draft_message(message_id: uuid.UUID, force: bool = False) -> StreamingResponse:
     """Runs the pipeline (if not yet run) and streams the draft as SSE.
+
+    `force=true` regenerates: it re-runs the pipeline on an already-drafted
+    message, appending a new drafts row (the old one stays for the audit
+    trail). Restricted to drafted/flagged so a sent message can't be un-sent.
 
     Streaming is presentation-layer: the pipeline produces the complete,
     validated, cited draft first (Groq is fast), then the text streams to the
@@ -156,7 +306,7 @@ def draft_message(message_id: uuid.UUID) -> StreamingResponse:
             if message is None:
                 yield _sse("error", {"detail": "message not found"})
                 return
-            if message.status == "new":
+            if message.status == "new" or (force and message.status in ("drafted", "flagged")):
                 yield _sse("status", {"stage": "drafting"})
                 process_message(db, get_llm(), message)
             if message.status == "spam":
