@@ -26,6 +26,14 @@ class Settings(BaseSettings):
     # GroqCloud API key (console.groq.com)
     groq_api_key: str = Field(min_length=1)
 
+    # One model per pipeline stage, each in its own free-tier rate-limit bucket
+    # (Groq caps tokens/day PER MODEL — routing stages across models is what
+    # keeps a full eval run inside the free tier). The judge is deliberately a
+    # different family than the drafter to avoid self-preference bias.
+    groq_draft_model: str = "openai/gpt-oss-120b"
+    groq_classify_model: str = "llama-3.1-8b-instant"
+    groq_judge_model: str = "llama-3.3-70b-versatile"
+
     # Origin allowed to call this API from the browser
     web_origin: str = "http://localhost:3000"
 

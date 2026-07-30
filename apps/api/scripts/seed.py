@@ -9,11 +9,11 @@ Run:  python -m scripts.seed
 
 import json
 import sys
-from datetime import datetime
 from pathlib import Path
 
 from sqlalchemy import delete, select
 
+from app.channels import get_adapter
 from app.db.models import Chunk, Document, Message, Tenant
 from app.db.session import get_sessionmaker
 from app.rag.chunking import chunk_document
@@ -61,17 +61,20 @@ def seed_business(business_dir: Path) -> None:
                 )
             chunk_count += len(texts)
 
+        # Only the payload crosses this line — exactly what a live webhook would
+        # deliver. The fixture's other fields are eval ground truth, not inputs.
         for m in messages:
+            normalized = get_adapter(m["channel"]).parse(m["payload"])
             session.add(
                 Message(
                     tenant_id=tenant.id,
-                    channel=m["channel"],
-                    external_id=m["external_id"],
-                    author_name=m["author_name"],
-                    content=m["content"],
-                    rating=m["rating"],
-                    raw=m["payload"],
-                    received_at=datetime.fromisoformat(m["received_at"]),
+                    channel=normalized.channel,
+                    external_id=normalized.external_id,
+                    author_name=normalized.author_name,
+                    content=normalized.content,
+                    rating=normalized.rating,
+                    raw=normalized.raw,
+                    received_at=normalized.received_at,
                 )
             )
 

@@ -14,5 +14,6 @@ __pycache__/
 node_modules/
 .next/
 
-# OS / editor
+# OS / editor / local tooling
 .DS_Store
+.claude/

@@ -31,5 +31,8 @@ seed: ## Load fixtures into the database (computes embeddings locally)
 migrate: ## Apply database migrations
 	cd apps/api && .venv/bin/alembic upgrade head
 
-eval: ## Run the eval harness (lands in M2)
-	@echo "eval harness arrives in M2"
+draft: ## Run the pipeline over all unprocessed messages
+	cd apps/api && .venv/bin/python -m scripts.draft_all
+
+eval: ## Reseed, run the pipeline on all fixture messages, score it
+	cd apps/api && .venv/bin/python -m evals.run
