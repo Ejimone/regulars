@@ -1,9 +1,10 @@
 "use client";
 
 import { ChannelIcon } from "@/components/channel-icon";
+import { StarRating } from "@/components/star-rating";
 import { StatusBadge } from "@/components/status-badge";
 import type { MessageListItem } from "@/lib/api/client";
-import { timeAgo } from "@/lib/format";
+import { formatAuthor, timeAgo } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 export function MessageList({
@@ -40,14 +41,9 @@ export function MessageList({
               <span className="min-w-0 flex-1">
                 <span className="flex items-baseline justify-between gap-2">
                   <span className="truncate text-sm font-medium">
-                    {m.author_name}
+                    {formatAuthor(m.channel, m.author_name).name}
                     {m.rating != null && (
-                      <span className="ml-1.5 text-xs font-normal text-amber-600">
-                        {"★".repeat(m.rating)}
-                        <span className="text-muted-foreground/40">
-                          {"★".repeat(5 - m.rating)}
-                        </span>
-                      </span>
+                      <StarRating rating={m.rating} className="ml-1.5" />
                     )}
                   </span>
                   <span className="shrink-0 text-xs text-muted-foreground">

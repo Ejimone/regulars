@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Regulars — web
 
-## Getting Started
+The dashboard for Regulars: a unified inbox where AI-drafted replies to
+reviews, DMs, and contact-form messages are reviewed, edited, and sent.
+Next.js 16 (App Router) · React 19 · Tailwind v4 · shadcn/ui (base-nova on
+Base UI) · Phosphor icons · TanStack Query.
 
-First, run the development server:
+## Develop
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev            # http://localhost:3000 (expects the API on :8000)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the API alongside it from the repo root with `make dev-api` (see the root
+README for database setup and seeding).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API types
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The typed client is generated from the running API's OpenAPI schema:
 
-## Learn More
+```bash
+pnpm generate:api   # regenerates src/lib/api/schema.d.ts from localhost:8000
+```
 
-To learn more about Next.js, take a look at the following resources:
+Regenerate and commit `schema.d.ts` whenever the API contract changes — CI
+does not regenerate it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Checks
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm lint
+pnpm typecheck
+pnpm build
+```

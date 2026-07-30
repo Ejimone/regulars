@@ -1,4 +1,4 @@
-import { Camera, Mail, MessageSquare, Star } from "lucide-react";
+import { channelMeta } from "@/lib/channels";
 
 export function ChannelIcon({
   channel,
@@ -7,8 +7,6 @@ export function ChannelIcon({
   channel: string;
   className?: string;
 }) {
-  if (channel === "google_review") return <Star className={className} />;
-  if (channel === "instagram_dm") return <Camera className={className} />;
-  if (channel === "contact_form") return <Mail className={className} />;
-  return <MessageSquare className={className} />;
+  const { Icon, label } = channelMeta(channel);
+  return <Icon className={className} aria-label={label} />;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Loader2, Send } from "lucide-react";
+import { Check, CircleNotch as Loader2, PaperPlaneTilt as Send } from "@phosphor-icons/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

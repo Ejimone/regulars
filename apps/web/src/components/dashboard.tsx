@@ -1,6 +1,6 @@
 "use client";
 
-import { Inbox, RotateCcw } from "lucide-react";
+import { Tray as Inbox, ArrowCounterClockwise as RotateCcw } from "@phosphor-icons/react";
 import { useCallback, useEffect, useState } from "react";
 
 import { MessageDetailPane } from "@/components/message-detail";

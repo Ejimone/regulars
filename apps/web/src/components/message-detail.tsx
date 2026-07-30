@@ -2,16 +2,17 @@
 
 import {
   Check,
-  Loader2,
-  Pencil,
-  Send,
-  ShieldAlert,
-  Sparkles,
+  CircleNotch as Loader2,
+  PencilSimple as Pencil,
+  PaperPlaneTilt as Send,
+  ShieldWarning as ShieldAlert,
+  Sparkle as Sparkles,
   X,
-} from "lucide-react";
+} from "@phosphor-icons/react";
 import { Fragment, useCallback, useEffect, useState } from "react";
 
 import { ChannelIcon } from "@/components/channel-icon";
+import { StarRating } from "@/components/star-rating";
 import { StatusBadge } from "@/components/status-badge";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +24,8 @@ import {
   type MessageDetail as Detail,
 } from "@/lib/api/client";
 import { streamDraft, type DraftMeta } from "@/lib/api/sse";
-import { CHANNEL_LABEL, timeAgo } from "@/lib/format";
+import { channelMeta } from "@/lib/channels";
+import { formatAuthor, timeAgo } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 type Phase = "loading" | "idle" | "drafting" | "streaming" | "ready";
@@ -222,19 +224,14 @@ export function MessageDetailPane({
       <header className="flex items-center justify-between">
         <div>
           <h2 className="text-lg font-semibold tracking-tight">
-            {detail.author_name}
+            {formatAuthor(detail.channel, detail.author_name).name}
             {detail.rating != null && (
-              <span className="ml-2 text-sm font-normal text-amber-600">
-                {"★".repeat(detail.rating)}
-                <span className="text-muted-foreground/40">
-                  {"★".repeat(5 - detail.rating)}
-                </span>
-              </span>
+              <StarRating rating={detail.rating} className="ml-2" />
             )}
           </h2>
           <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
             <ChannelIcon channel={detail.channel} className="size-3.5" />
-            {CHANNEL_LABEL[detail.channel] ?? detail.channel} ·{" "}
+            {channelMeta(detail.channel).label} ·{" "}
             {timeAgo(detail.received_at)}
           </p>
         </div>
