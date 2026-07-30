@@ -1,11 +1,11 @@
 "use client";
 
 import type { Icon } from "@phosphor-icons/react";
-import { Books, ChartBar, MagnifyingGlass, Tray } from "@phosphor-icons/react";
+import { Books, ChartBar, MagnifyingGlass, Moon, Sun, Tray } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ThemeToggle } from "@/components/theme-toggle";
+import { useThemeSwitch } from "@/components/theme-toggle";
 import { WorkspaceSwitcher } from "@/components/workspace-switcher";
 import { Kbd, KbdGroup } from "@/components/ui/kbd";
 import {
@@ -27,6 +27,18 @@ const NAV: { title: string; segment: string; Icon: Icon }[] = [
   { title: "Knowledge", segment: "knowledge", Icon: Books },
   { title: "Overview", segment: "overview", Icon: ChartBar },
 ];
+
+function ThemeMenuItem() {
+  const { isDark, toggle } = useThemeSwitch();
+  return (
+    <SidebarMenuItem>
+      <SidebarMenuButton onClick={toggle} tooltip="Toggle theme">
+        {isDark ? <Sun aria-hidden /> : <Moon aria-hidden />}
+        <span>{isDark ? "Light theme" : "Dark theme"}</span>
+      </SidebarMenuButton>
+    </SidebarMenuItem>
+  );
+}
 
 export function AppSidebar({
   slug,
@@ -82,19 +94,13 @@ export function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton onClick={onOpenCommandMenu} tooltip="Command menu">
               <MagnifyingGlass aria-hidden />
-              <span className="flex-1">Search</span>
-              <KbdGroup className="group-data-[collapsible=icon]:hidden">
-                <Kbd>⌘</Kbd>
-                <Kbd>K</Kbd>
+              <span>Search</span>
+              <KbdGroup className="ml-auto group-data-[collapsible=icon]:hidden">
+                <Kbd>⌘K</Kbd>
               </KbdGroup>
             </SidebarMenuButton>
           </SidebarMenuItem>
-          <SidebarMenuItem className="flex items-center justify-between px-1 group-data-[collapsible=icon]:justify-center">
-            <span className="text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
-              Theme
-            </span>
-            <ThemeToggle />
-          </SidebarMenuItem>
+          <ThemeMenuItem />
         </SidebarMenu>
       </SidebarFooter>
     </Sidebar>

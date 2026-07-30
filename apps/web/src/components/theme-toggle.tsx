@@ -9,6 +9,18 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 
 const emptySubscribe = () => () => {};
 
+export function useThemeSwitch() {
+  const { resolvedTheme, setTheme } = useTheme();
+  // true after hydration, false during SSR — avoids a theme-icon mismatch flash
+  const mounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+  const isDark = mounted ? resolvedTheme === "dark" : true;
+  return { isDark, toggle: () => setTheme(isDark ? "light" : "dark") };
+}
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   // true after hydration, false during SSR — avoids a theme-icon mismatch flash

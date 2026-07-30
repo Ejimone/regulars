@@ -64,7 +64,7 @@ export default function WorkspaceLayout({
   return (
     <SidebarProvider>
       <AppSidebar slug={slug} onOpenCommandMenu={() => setCommandOpen(true)} />
-      <SidebarInset className="min-w-0">
+      <SidebarInset className="h-svh min-w-0 overflow-hidden">
         <div className="flex h-12 shrink-0 items-center gap-2 border-b px-3 md:hidden">
           <SidebarTrigger />
           <span className="text-sm font-medium">Regulars</span>
