@@ -1,0 +1,45 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: regulars
+      POSTGRES_PASSWORD: regulars
+      POSTGRES_DB: regulars
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U regulars -d regulars"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    build: ./apps/api
+    environment:
+      # Inside the compose network the DB host is the service name, not localhost
+      DATABASE_URL: postgresql+psycopg://regulars:regulars@db:5432/regulars
+      GROQ_API_KEY: ${GROQ_API_KEY:?set GROQ_API_KEY in .env — get one at console.groq.com}
+      WEB_ORIGIN: http://localhost:3000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/api/app:/app/app # live-reload on source edits
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build: ./apps/web
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web/src:/app/src # live-reload on source edits
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
