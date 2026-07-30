@@ -1,17 +1,21 @@
 "use client";
 
-import { Check, CircleNotch as Loader2, PaperPlaneTilt as Send } from "@phosphor-icons/react";
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { Check, PaperPlaneTilt } from "@phosphor-icons/react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Field, FieldError, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/ui/spinner";
 import { Textarea } from "@/components/ui/textarea";
-import { api, type Tenant } from "@/lib/api/client";
+import { api } from "@/lib/api/client";
+import { useTenants } from "@/lib/api/queries";
 
 /** The live channel: a real form on a real endpoint. Submissions land in the
- * inbox as `new` messages via the same adapter the replay fixtures use. */
+ * business's inbox as `new` messages via the same adapter as every channel. */
 export function ContactForm({ slug }: { slug: string }) {
-  const [tenant, setTenant] = useState<Tenant | null>(null);
+  const { data: tenants } = useTenants();
+  const tenant = tenants?.find((t) => t.slug === slug) ?? null;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -19,82 +23,89 @@ export function ContactForm({ slug }: { slug: string }) {
   const [done, setDone] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    void api.GET("/api/tenants").then(({ data }) => {
-      setTenant(data?.find((t) => t.slug === slug) ?? null);
-    });
-  }, [slug]);
-
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const { data, error: apiError } = await api.POST(
-      "/api/public/contact/{slug}",
-      {
+    try {
+      const { data, error: apiError } = await api.POST("/api/public/contact/{slug}", {
         params: { path: { slug } },
         body: { name, email, message },
-      }
-    );
-    setBusy(false);
-    if (data?.ok) setDone(true);
-    else if (apiError) setError("Something went wrong — check the fields and try again.");
+      });
+      if (apiError || !data?.ok) throw new Error("submit failed");
+      setDone(true);
+    } catch {
+      setError("Your message couldn't be sent. Check the fields and try again.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
-    <div className="flex min-h-dvh items-center justify-center bg-muted/30 p-6">
-      <div className="w-full max-w-md rounded-2xl border bg-background p-8 shadow-sm">
+    <div className="flex min-h-dvh flex-col items-center justify-center bg-muted/30 p-4 sm:p-6">
+      <div className="w-full max-w-md rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
         {done ? (
-          <div className="text-center">
-            <span className="mx-auto mb-3 flex size-10 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950">
-              <Check className="size-5 text-emerald-600" />
+          <div className="text-center" role="status">
+            <span className="mx-auto mb-3 flex size-10 items-center justify-center rounded-full bg-primary/15">
+              <Check className="size-5 text-primary" aria-hidden />
             </span>
-            <h1 className="text-lg font-semibold">Message sent</h1>
+            <h1 className="text-lg font-semibold tracking-tight">Message sent</h1>
             <p className="mt-1 text-sm text-muted-foreground">
+              Thanks{name ? `, ${name.split(" ")[0]}` : ""}.{" "}
               {tenant?.name ?? "The business"} will get back to you shortly.
-            </p>
-            <p className="mt-4 text-xs text-muted-foreground">
-              Demo tip: <Link href="/" className="underline">open the inbox</Link>{" "}
-              to watch this message arrive and get drafted.
             </p>
           </div>
         ) : (
           <>
             <h1 className="text-lg font-semibold tracking-tight">
-              Contact {tenant?.name ?? "…"}
+              Contact {tenant?.name ?? "us"}
             </h1>
             <p className="mt-1 mb-6 text-sm text-muted-foreground">
-              Ask about hours, prices, bookings — anything.
+              Questions about hours, prices, or bookings are welcome.
             </p>
-            <form onSubmit={submit} className="space-y-3">
-              <input
-                required
-                placeholder="Your name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="h-9 w-full rounded-lg border bg-background px-3 text-sm"
-              />
-              <input
-                required
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="h-9 w-full rounded-lg border bg-background px-3 text-sm"
-              />
-              <Textarea
-                required
-                placeholder="Your message"
-                rows={4}
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              />
-              {error && <p className="text-xs text-red-600">{error}</p>}
+            <form onSubmit={(e) => void submit(e)} className="space-y-4">
+              <Field>
+                <FieldLabel htmlFor="contact-name">Name</FieldLabel>
+                <Input
+                  id="contact-name"
+                  required
+                  autoComplete="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  disabled={busy}
+                />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="contact-email">Email</FieldLabel>
+                <Input
+                  id="contact-email"
+                  required
+                  type="email"
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={busy}
+                  aria-invalid={error != null || undefined}
+                />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="contact-message">Message</FieldLabel>
+                <Textarea
+                  id="contact-message"
+                  required
+                  rows={4}
+                  maxLength={4000}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  disabled={busy}
+                />
+              </Field>
+              {error && <FieldError role="alert">{error}</FieldError>}
               <Button type="submit" disabled={busy} className="w-full">
                 {busy ? (
-                  <Loader2 data-icon="inline-start" className="animate-spin" />
+                  <Spinner data-icon="inline-start" />
                 ) : (
-                  <Send data-icon="inline-start" />
+                  <PaperPlaneTilt data-icon="inline-start" aria-hidden />
                 )}
                 Send message
               </Button>
@@ -102,6 +113,9 @@ export function ContactForm({ slug }: { slug: string }) {
           </>
         )}
       </div>
+      <p className="mt-4 text-xs text-muted-foreground">
+        Powered by <span className="font-medium text-foreground">Regulars</span>
+      </p>
     </div>
   );
 }

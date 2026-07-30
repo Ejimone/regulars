@@ -167,10 +167,10 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Reset Demo
-         * @description One-click demo reset: rebuild this tenant from its committed fixtures.
+         * Reset Tenant
+         * @description Rebuild this tenant from its committed source fixtures.
          */
-        post: operations["reset_demo_api_tenants__slug__reset_post"];
+        post: operations["reset_tenant_api_tenants__slug__reset_post"];
         delete?: never;
         options?: never;
         head?: never;
@@ -704,7 +704,7 @@ export interface operations {
             };
         };
     };
-    reset_demo_api_tenants__slug__reset_post: {
+    reset_tenant_api_tenants__slug__reset_post: {
         parameters: {
             query?: never;
             header?: never;

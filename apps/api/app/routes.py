@@ -369,8 +369,8 @@ def send_draft(draft_id: uuid.UUID, body: SendIn, db: DbDep) -> SendOut:
 
 
 @router.post("/tenants/{slug}/reset")
-def reset_demo(slug: str, db: DbDep) -> ResetOut:
-    """One-click demo reset: rebuild this tenant from its committed fixtures."""
+def reset_tenant(slug: str, db: DbDep) -> ResetOut:
+    """Rebuild this tenant from its committed source fixtures."""
     from scripts.seed import FIXTURES_DIR, seed_business  # scripts import app, not vice versa
 
     _tenant_or_404(db, slug)
