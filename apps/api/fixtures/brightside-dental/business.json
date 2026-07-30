@@ -4,32 +4,32 @@
   "vertical": "dental_clinic",
   "documents": [
     {
-      "title": "hours",
+      "title": "Hours of Operation",
       "kind": "hours",
       "content": "Monday: 8am - 5pm\nTuesday: 8am - 5pm\nWednesday: 8am - 5pm\nThursday: 8am - 5pm\nFriday: 8am - 5pm\nSaturday: 9am - 2pm\nSunday: Closed\nNote: We are also closed on major holidays such as New Year's Day, Memorial Day, and Christmas Day."
     },
     {
-      "title": "services",
+      "title": "Services Offered",
       "kind": "services",
       "content": "## Cleanings\nOur cleaning service includes a thorough examination, scaling, and polishing of your teeth. This service typically takes 30 minutes to an hour and is recommended for all patients. Our experienced dentists will work with you to create a personalized cleaning plan.\n\n## Fillings\nOur filling service includes the removal of decayed tooth material and the placement of a filling. This service typically takes 30 minutes to an hour and is recommended for patients with cavities. We offer tooth-colored fillings to match your natural tooth color.\n\n## Whitening\nOur whitening service includes a consultation to determine the best course of treatment for your teeth. We offer both in-office and at-home whitening options. This service typically takes 1-2 hours and is recommended for patients looking to brighten their smile.\n\n## Crowns\nOur crown service includes the creation and placement of a custom crown to restore a damaged tooth. This service typically takes 2-3 visits and is recommended for patients with severely damaged teeth. We offer a variety of crown materials, including porcelain and ceramic."
     },
     {
-      "title": "pricing",
+      "title": "Pricing Information",
       "kind": "pricing",
       "content": "## Cleanings\nOur cleaning services start at $75 for a basic cleaning and can range up to $150 for a deep cleaning. We also offer a discount for patients who schedule regular cleanings.\n\n## Fillings\nOur filling services start at $100 for a small filling and can range up to $300 for a large filling. We offer a variety of filling materials, including tooth-colored fillings, which may be more expensive.\n\n## Whitening\nOur whitening services start at $200 for an at-home whitening kit and can range up to $500 for an in-office whitening treatment. We also offer a bundle discount for patients who combine whitening with other services."
     },
     {
-      "title": "policies",
+      "title": "Business Policies",
       "kind": "policies",
       "content": "## Cancellation Policy\nWe require a 24-hour notice for cancellations. If you need to cancel your appointment, please call us at least 24 hours in advance to avoid a $25 cancellation fee.\n\n## Payment and Insurance Policy\nWe accept a variety of insurance plans, including Delta Dental, MetLife, and Cigna. We also offer financing options for patients without insurance. A deposit of $50 is required for all services, which will be applied to your total bill.\n\n## Late Arrival Policy\nIf you arrive more than 15 minutes late for your appointment, we may need to reschedule for another day. Please call us if you are running late so we can accommodate you.\n\n## Refund Policy\nWe offer a 100% satisfaction guarantee. If you are not satisfied with your service, please contact us within 30 days and we will work with you to resolve the issue."
     },
     {
-      "title": "faq",
+      "title": "Frequently Asked Questions",
       "kind": "faq",
       "content": "Q: Do you offer emergency appointments?\nA: Yes, we offer emergency appointments for patients with urgent dental needs. Please call us to schedule an appointment.\n\nQ: Do you accept walk-ins?\nA: No, we do not accept walk-ins. Please schedule an appointment in advance to ensure that we can accommodate you.\n\nQ: Can I schedule an appointment online?\nA: Yes, you can schedule an appointment online through our website or by calling us directly.\n\nQ: Do you offer financing options?\nA: Yes, we offer financing options for patients without insurance. Please contact us for more information.\n\nQ: Can I bring my child with me to my appointment?\nA: Yes, you can bring your child with you to your appointment. However, please note that we may not be able to accommodate them in the treatment room.\n\nQ: Do you offer dental implants?\nA: No, we do not offer dental implants. However, we can refer you to a specialist who can provide this service.\n\nQ: Can I get a copy of my dental records?\nA: Yes, you can request a copy of your dental records at any time. Please contact us and we will provide you with a copy.\n\nQ: Do you have a waiting list?\nA: Yes, we may have a waiting list for certain services. Please contact us to inquire about availability.\n\nQ: Can I schedule a consultation?\nA: Yes, you can schedule a consultation to discuss your dental needs and create a personalized treatment plan."
     },
     {
-      "title": "tone",
+      "title": "Tone and Voice Guide",
       "kind": "tone",
       "content": "At Brightside Dental Clinic, we strive to provide a warm and welcoming atmosphere for all our patients. Here are some guidelines for our tone:\nDo: Be friendly and approachable, use patient's names, and explain procedures in a clear and concise manner.\nDon't: Use jargon or technical terms that may confuse patients, be dismissive or uncaring, or rush through appointments.\nExample sign-off: 'Thank you for choosing Brightside Dental Clinic. We look forward to seeing you at your next appointment. Have a great day!'"
     }
