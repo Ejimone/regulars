@@ -34,8 +34,20 @@ class Settings(BaseSettings):
     groq_classify_model: str = "llama-3.1-8b-instant"
     groq_judge_model: str = "llama-3.3-70b-versatile"
 
-    # Origin allowed to call this API from the browser
+    # Origin allowed to call this API from the browser. Comma-separated to allow
+    # a preview deployment alongside production.
     web_origin: str = "http://localhost:3000"
+
+    # "jina" (hosted HTTP) or "local" (fastembed on CPU). Serverless bundles
+    # can't carry onnxruntime + weights, so deployments use the hosted provider;
+    # local stays cheaper for bulk re-seeding.
+    embedding_provider: str = "local"
+    jina_api_key: str = ""
+    jina_embed_model: str = "jina-embeddings-v3"
+
+    @property
+    def web_origins(self) -> list[str]:
+        return [o.strip() for o in self.web_origin.split(",") if o.strip()]
 
 
 @lru_cache

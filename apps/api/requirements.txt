@@ -1,0 +1,15 @@
+# Vercel's Python runtime installs from this file.
+#
+# Deliberately excludes fastembed/onnxruntime: they add ~150MB and would blow the
+# 250MB serverless bundle limit. Deployments set EMBEDDING_PROVIDER=jina and call
+# a hosted embedding API instead — see app/rag/embedder.py.
+#
+# uvicorn is also absent; Vercel supplies the ASGI server.
+fastapi>=0.115
+pydantic-settings>=2.4
+sqlalchemy>=2.0
+psycopg[binary]>=3.2
+pgvector>=0.3
+groq>=0.13
+email-validator>=2.0
+httpx>=0.27
