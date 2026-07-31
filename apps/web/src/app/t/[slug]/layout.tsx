@@ -1,6 +1,6 @@
 "use client";
 
-import { SmileyXEyes } from "@phosphor-icons/react";
+import { Frown } from "lucide-react";
 import Link from "next/link";
 import { use, useEffect, useState } from "react";
 
@@ -36,15 +36,15 @@ export default function WorkspaceLayout({
   if (tenants && !tenants.some((t) => t.slug === slug)) {
     return (
       <div className="flex h-dvh flex-col items-center justify-center gap-4 p-8 text-center">
-        <SmileyXEyes className="size-8 text-muted-foreground" aria-hidden />
+        <Frown className="size-8 text-muted-foreground" aria-hidden />
         <div className="space-y-1">
           <h1 className="text-lg font-semibold tracking-tight">Workspace not found</h1>
           <p className="max-w-sm text-sm text-muted-foreground">
             There&apos;s no workspace named &ldquo;{slug}&rdquo;.
           </p>
         </div>
-        <Button variant="outline" render={<Link href="/" />}>
-          Go to your inbox
+        <Button variant="outline" asChild>
+          <Link href="/t">Choose a workspace</Link>
         </Button>
       </div>
     );

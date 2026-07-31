@@ -8,10 +8,16 @@ export function StatTile({
   detail?: string;
 }) {
   return (
-    <div className="rounded-xl border bg-card p-4">
+    <div className="rounded-xl border border-hairline bg-card p-4">
       <p className="text-xs text-muted-foreground">{label}</p>
-      <p className="mt-1.5 text-3xl font-semibold tracking-tight">{value}</p>
-      {detail && <p className="mt-1 text-xs text-muted-foreground">{detail}</p>}
+      {/* Steps down on narrow screens so four-digit counts don't wrap in the
+          two-up mobile grid. */}
+      <p className="mt-1.5 font-mono text-2xl tabular-nums tracking-h2 sm:text-3xl">
+        {value}
+      </p>
+      {detail && (
+        <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{detail}</p>
+      )}
     </div>
   );
 }

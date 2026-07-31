@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, PaperPlaneTilt } from "@phosphor-icons/react";
+import { Send } from "lucide-react";
 import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -42,27 +42,36 @@ export function ContactForm({ slug }: { slug: string }) {
   };
 
   return (
-    <div className="flex min-h-dvh flex-col items-center justify-center bg-muted/30 p-4 sm:p-6">
-      <div className="w-full max-w-md rounded-2xl border bg-card p-6 shadow-sm sm:p-8">
-        {done ? (
-          <div className="text-center" role="status">
-            <span className="mx-auto mb-3 flex size-10 items-center justify-center rounded-full bg-primary/15">
-              <Check className="size-5 text-primary" aria-hidden />
-            </span>
-            <h1 className="text-lg font-semibold tracking-tight">Message sent</h1>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Thanks{name ? `, ${name.split(" ")[0]}` : ""}.{" "}
-              {tenant?.name ?? "The business"} will get back to you shortly.
-            </p>
-          </div>
-        ) : (
-          <>
-            <h1 className="text-lg font-semibold tracking-tight">
-              Contact {tenant?.name ?? "us"}
-            </h1>
-            <p className="mt-1 mb-6 text-sm text-muted-foreground">
-              Questions about hours, prices, or bookings are welcome.
-            </p>
+    // Offset from the top rather than vertically centred — a centred card in a
+    // dead field is the template look this page is deliberately avoiding.
+    <div className="mx-auto w-full max-w-[34rem] px-4 sm:px-6 pt-16 pb-24 md:pt-24">
+      {done ? (
+        <div role="status">
+          <p className="text-[13px] font-medium tracking-eyebrow text-muted-foreground">
+            Sent
+          </p>
+          <h1 className="mt-4 font-display text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.05] font-normal tracking-h1">
+            Thanks{name ? `, ${name.split(" ")[0]}` : ""}.
+          </h1>
+          <p className="mt-5 max-w-[46ch] text-[15px] leading-[1.6] text-muted-foreground">
+            {tenant?.name ?? "The business"} has your message and will get back to you
+            at {email || "the address you gave"}.
+          </p>
+        </div>
+      ) : (
+        <>
+          <p className="text-[13px] font-medium tracking-eyebrow text-muted-foreground">
+            Get in touch
+          </p>
+          <h1 className="mt-4 font-display text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.05] font-normal tracking-h1 text-balance">
+            {tenant?.name ?? "Contact us"}
+          </h1>
+          <p className="mt-5 max-w-[46ch] text-[15px] leading-[1.6] text-muted-foreground">
+            Questions about hours, prices or bookings are welcome. Most messages are
+            answered the same day.
+          </p>
+
+          <div className="mt-10 rounded-2xl border border-hairline bg-card p-6 shadow-e2 sm:p-8">
             <form onSubmit={(e) => void submit(e)} className="space-y-4">
               <Field>
                 <FieldLabel htmlFor="contact-name">Name</FieldLabel>
@@ -101,21 +110,14 @@ export function ContactForm({ slug }: { slug: string }) {
                 />
               </Field>
               {error && <FieldError role="alert">{error}</FieldError>}
-              <Button type="submit" disabled={busy} className="w-full">
-                {busy ? (
-                  <Spinner data-icon="inline-start" />
-                ) : (
-                  <PaperPlaneTilt data-icon="inline-start" aria-hidden />
-                )}
+              <Button type="submit" disabled={busy} className="w-full rounded-full">
+                {busy ? <Spinner /> : <Send aria-hidden />}
                 Send message
               </Button>
             </form>
-          </>
-        )}
-      </div>
-      <p className="mt-4 text-xs text-muted-foreground">
-        Powered by <span className="font-medium text-foreground">Regulars</span>
-      </p>
+          </div>
+        </>
+      )}
     </div>
   );
 }

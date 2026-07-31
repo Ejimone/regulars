@@ -1,13 +1,17 @@
-import { TrayIcon } from "@phosphor-icons/react/dist/ssr";
+import { Inbox } from "lucide-react";
 
 export default function InboxIndexPage() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 p-8 text-center text-muted-foreground">
-      <TrayIcon className="size-8" aria-hidden />
-      <div>
-        <p className="text-sm font-medium text-foreground">Select a message</p>
-        <p className="mt-1 text-sm">
-          Choose a message from the list to review its draft.
+    <div className="flex h-full flex-col justify-center p-6 sm:p-10">
+      <div className="max-w-[38ch]">
+        <span className="flex size-9 items-center justify-center rounded-lg bg-surface-2 text-muted-foreground">
+          <Inbox className="size-4" aria-hidden />
+        </span>
+        <p className="mt-5 text-[15px] font-medium">Select a message.</p>
+        <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+          Its draft, the facts behind it, and the approve action all appear here. Use{" "}
+          <kbd className="font-mono text-xs">j</kbd> and{" "}
+          <kbd className="font-mono text-xs">k</kbd> to move through the list.
         </p>
       </div>
     </div>

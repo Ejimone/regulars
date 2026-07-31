@@ -9,7 +9,7 @@ Base UI) · Phosphor icons · TanStack Query.
 
 ```bash
 pnpm install
-pnpm dev            # http://localhost:3000 (expects the API on :8000)
+pnpm dev            # http://localhost:3000 (expects the API on :8001)
 ```
 
 Run the API alongside it from the repo root with `make dev-api` (see the root
@@ -20,7 +20,7 @@ README for database setup and seeding).
 The typed client is generated from the running API's OpenAPI schema:
 
 ```bash
-pnpm generate:api   # regenerates src/lib/api/schema.d.ts from localhost:8000
+pnpm generate:api   # regenerates src/lib/api/schema.d.ts from localhost:8001
 ```
 
 Regenerate and commit `schema.d.ts` whenever the API contract changes — CI

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowsClockwise, CaretLeft, CaretRight, MagnifyingGlass, Tray } from "@phosphor-icons/react";
+import { RefreshCw, ChevronLeft, ChevronRight, Search, Inbox } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -111,11 +111,11 @@ export function MessageListPane({
             aria-label="Refresh"
             onClick={() => void refetch()}
           >
-            <ArrowsClockwise className={cn(isFetching && "animate-spin")} aria-hidden />
+            <RefreshCw className={cn(isFetching && "animate-spin")} aria-hidden />
           </Button>
         </div>
         <div className="relative">
-          <MagnifyingGlass
+          <Search
             aria-hidden
             className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
           />
@@ -135,7 +135,7 @@ export function MessageListPane({
             setParams({ status: value === "all" ? null : (value as string), page: null })
           }
         >
-          <TabsList className="w-full justify-start overflow-x-auto no-scrollbar">
+          <TabsList className="w-full justify-start overflow-x-auto no-scrollbar scroll-fade-x scroll-fade-8">
             <TabsTrigger value="all">
               All
               {stats && (
@@ -180,7 +180,7 @@ export function MessageListPane({
         ) : data && data.items.length === 0 ? (
           <Empty className="h-full">
             <EmptyMedia variant="icon">
-              <Tray aria-hidden />
+              <Inbox aria-hidden />
             </EmptyMedia>
             <EmptyHeader>
               <EmptyTitle>{q ? "No matches" : "You're all caught up"}</EmptyTitle>
@@ -225,7 +225,7 @@ export function MessageListPane({
               disabled={!hasPrev}
               onClick={() => setParams({ page: String(page - 1) })}
             >
-              <CaretLeft aria-hidden />
+              <ChevronLeft aria-hidden />
             </Button>
             <Button
               variant="ghost"
@@ -234,7 +234,7 @@ export function MessageListPane({
               disabled={!hasNext}
               onClick={() => setParams({ page: String(page + 1) })}
             >
-              <CaretRight aria-hidden />
+              <ChevronRight aria-hidden />
             </Button>
           </span>
         </div>

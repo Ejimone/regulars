@@ -1,15 +1,16 @@
 "use client";
 
-import type { Icon } from "@phosphor-icons/react";
+import type { LucideIcon } from "lucide-react";
 import {
-  ArrowCounterClockwise,
-  Books,
-  ChartBar,
+  ExternalLink,
+  Library,
+  ChartColumn,
   Moon,
-  Storefront,
+  Settings,
+  Store,
   Sun,
-  Tray,
-} from "@phosphor-icons/react";
+  Inbox,
+} from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
@@ -23,7 +24,7 @@ type Action = {
   id: string;
   label: string;
   hint?: string;
-  Icon: Icon;
+  Icon: LucideIcon;
   run: () => void;
 };
 
@@ -50,9 +51,10 @@ export function CommandMenu({
       router.push(path);
     };
     const items: Action[] = [
-      { id: "inbox", label: "Go to Inbox", Icon: Tray, run: go(`/t/${slug}/inbox`) },
-      { id: "knowledge", label: "Go to Knowledge", Icon: Books, run: go(`/t/${slug}/knowledge`) },
-      { id: "overview", label: "Go to Overview", Icon: ChartBar, run: go(`/t/${slug}/overview`) },
+      { id: "inbox", label: "Go to Inbox", Icon: Inbox, run: go(`/t/${slug}/inbox`) },
+      { id: "knowledge", label: "Go to Knowledge", Icon: Library, run: go(`/t/${slug}/knowledge`) },
+      { id: "overview", label: "Go to Overview", Icon: ChartColumn, run: go(`/t/${slug}/overview`) },
+      { id: "settings", label: "Go to Settings", Icon: Settings, run: go(`/t/${slug}/settings`) },
       {
         id: "theme",
         label: resolvedTheme === "dark" ? "Switch to light theme" : "Switch to dark theme",
@@ -69,16 +71,16 @@ export function CommandMenu({
           id: `switch-${t.slug}`,
           label: `Switch to ${t.name}`,
           hint: "Workspace",
-          Icon: Storefront,
+          Icon: Store,
           run: go(`/t/${t.slug}/inbox`),
         });
       }
     }
     items.push({
       id: "contact",
-      label: "Open public contact page",
+      label: "Open your contact page",
       hint: "New tab",
-      Icon: ArrowCounterClockwise,
+      Icon: ExternalLink,
       run: () => {
         window.open(`/contact/${slug}`, "_blank", "noopener");
         onOpenChange(false);

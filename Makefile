@@ -10,7 +10,7 @@ down:
 	docker compose down
 
 dev-api: ## Run the API natively with reload (needs `make up` db or local postgres)
-	cd apps/api && uvicorn app.main:app --reload --port 8000
+	cd apps/api && uvicorn app.main:app --reload --port 8001
 
 dev-web: ## Run the web app natively
 	cd apps/web && pnpm dev
@@ -22,8 +22,8 @@ lint:
 	cd apps/api && ruff check . && ruff format --check . && mypy
 	cd apps/web && npm run lint && npm run typecheck
 
-fixtures: ## Regenerate demo-business fixtures with Groq (fixtures are committed)
-	cd apps/api && .venv/bin/python -m scripts.generate_fixtures
+fixtures: ## DESTRUCTIVE — regenerate sample fixtures with Groq, discarding the hand-edited ones
+	cd apps/api && .venv/bin/python -m scripts.generate_fixtures --force
 
 seed: ## Load fixtures into the database (computes embeddings locally)
 	cd apps/api && .venv/bin/python -m scripts.seed

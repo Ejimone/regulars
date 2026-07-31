@@ -1,12 +1,12 @@
-import type { Icon } from "@phosphor-icons/react";
+import type { LucideIcon } from "lucide-react";
 import {
-  ChatTeardropText,
+  CircleQuestionMark,
   Clock,
-  Question,
+  MessageSquareQuote,
   Scroll,
-  Storefront,
+  Store,
   Tag,
-} from "@phosphor-icons/react";
+} from "lucide-react";
 
 /** Mirrors DOCUMENT_KINDS in apps/api/app/db/models.py (display order). */
 export const DOCUMENT_KINDS = [
@@ -20,13 +20,13 @@ export const DOCUMENT_KINDS = [
 
 export type DocumentKind = (typeof DOCUMENT_KINDS)[number];
 
-export const KIND_META: Record<DocumentKind, { label: string; Icon: Icon }> = {
+export const KIND_META: Record<DocumentKind, { label: string; Icon: LucideIcon }> = {
   hours: { label: "Hours", Icon: Clock },
-  services: { label: "Services", Icon: Storefront },
+  services: { label: "Services", Icon: Store },
   pricing: { label: "Pricing", Icon: Tag },
   policies: { label: "Policies", Icon: Scroll },
-  faq: { label: "FAQ", Icon: Question },
-  tone: { label: "Tone of voice", Icon: ChatTeardropText },
+  faq: { label: "FAQ", Icon: CircleQuestionMark },
+  tone: { label: "Tone of voice", Icon: MessageSquareQuote },
 };
 
 export function kindMeta(kind: string) {

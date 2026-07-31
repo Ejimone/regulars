@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldWarning } from "@phosphor-icons/react";
+import { ShieldAlert } from "lucide-react";
 import { useEffect, useRef } from "react";
 
 import type { Citation } from "@/lib/api/client";
@@ -29,14 +29,14 @@ export function CitationsPanel({
     <aside
       ref={ref}
       aria-label="Retrieved facts"
-      className="w-full shrink-0 space-y-2 lg:w-72"
+      className="w-full shrink-0 space-y-2 xl:w-[280px]"
     >
-      <h3 className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
+      <h3 className="text-[13px] font-medium tracking-eyebrow text-muted-foreground">
         Retrieved facts
       </h3>
       {refused ? (
         <div className="rounded-lg border border-status-flagged/30 bg-status-flagged/10 p-3 text-xs leading-relaxed text-status-flagged">
-          <ShieldWarning className="mb-1.5 size-4" aria-hidden />
+          <ShieldAlert className="mb-1.5 size-4" aria-hidden />
           The knowledge base doesn&apos;t cover this confidently, so no facts were
           used. The draft asks for time instead of guessing.
         </div>

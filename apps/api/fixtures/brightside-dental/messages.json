@@ -1,46 +1,350 @@
 [
   {
+    "external_id": "mid.3f2f835976eb4ad5becd5e49211fc842",
+    "channel": "instagram_dm",
+    "category": "vague",
+    "author_name": "tee.jay",
+    "content": "hiya",
+    "rating": null,
+    "received_at": "2026-07-30T11:47:12.884000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785412032884,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1056649479519672"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785412032884,
+              "message": {
+                "mid": "mid.3f2f835976eb4ad5becd5e49211fc842",
+                "text": "hiya"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "external_id": "65729aa2a41e4133a7105197f1705d40",
     "channel": "contact_form",
     "category": "single_fact",
-    "author_name": "Alex Chen",
-    "content": "What time do you open on saturdays?",
+    "author_name": "Hannah Prescott",
+    "content": "What time do you open on a Saturday? Weekends are the only thing that works with my shifts.",
     "rating": null,
-    "received_at": "2026-07-30T04:48:22.020587+00:00",
+    "received_at": "2026-07-30T09:14:41.652903+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Alex Chen",
-      "email": "alex.chen@example.com",
-      "message": "What time do you open on saturdays?",
-      "submitted_at": "2026-07-30T04:48:22.020587Z"
+      "name": "Hannah Prescott",
+      "email": "hannah.prescott91@gmail.com",
+      "message": "What time do you open on a Saturday? Weekends are the only thing that works with my shifts.",
+      "submitted_at": "2026-07-30T09:14:41.652903Z"
+    }
+  },
+  {
+    "external_id": "mid.1156678b2a904365b7add5a520d22419",
+    "channel": "instagram_dm",
+    "category": "single_fact",
+    "author_name": "saff.k",
+    "content": "do u take nhs patients",
+    "rating": null,
+    "received_at": "2026-07-30T08:22:07.318000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785399727318,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1026563148281387"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785399727318,
+              "message": {
+                "mid": "mid.1156678b2a904365b7add5a520d22419",
+                "text": "do u take nhs patients"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "f78c0b915ec6463fa1cef78906dac305",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Erin Coyle",
+    "content": "Still waiting on a refund seven weeks later. I came in for a filling in May, was told at the desk it would be around £135, and then got an invoice for £310 because apparently it had turned into a root canal partway through - which nobody mentioned to me while I was lying there with my mouth open. Fine. I paid it, because what else do you do. Then the same treatment turned up on my Denplan statement as well, so I have now been charged twice for one tooth. I have rung four times. Twice I was told the practice manager would call me back and she didn't. The third time I was told the person who does the billing is only in on Tuesdays. The fourth time it rang out for ten minutes and then cut off. I am not even that bothered about the money any more, I just want somebody to pick the phone up and tell me what is going on. The dentistry itself was fine. The admin is a shambles.",
+    "rating": 1,
+    "received_at": "2026-07-29T20:03:41.226795+00:00",
+    "payload": {
+      "name": "accounts/1001/locations/2002/reviews/f78c0b915ec6463fa1cef78906dac305",
+      "reviewId": "f78c0b915ec6463fa1cef78906dac305",
+      "reviewer": {
+        "displayName": "Erin Coyle",
+        "isAnonymous": false
+      },
+      "starRating": "ONE",
+      "comment": "Still waiting on a refund seven weeks later. I came in for a filling in May, was told at the desk it would be around £135, and then got an invoice for £310 because apparently it had turned into a root canal partway through - which nobody mentioned to me while I was lying there with my mouth open. Fine. I paid it, because what else do you do. Then the same treatment turned up on my Denplan statement as well, so I have now been charged twice for one tooth. I have rung four times. Twice I was told the practice manager would call me back and she didn't. The third time I was told the person who does the billing is only in on Tuesdays. The fourth time it rang out for ten minutes and then cut off. I am not even that bothered about the money any more, I just want somebody to pick the phone up and tell me what is going on. The dentistry itself was fine. The admin is a shambles.",
+      "createTime": "2026-07-29T20:03:41.226795Z",
+      "updateTime": "2026-07-29T20:03:41.226795Z"
+    }
+  },
+  {
+    "external_id": "7ee7f72cb65648a99c136933ccec7b85",
+    "channel": "contact_form",
+    "category": "multi_fact",
+    "author_name": "Aisha Rahman",
+    "content": "Two things really - do you have anything after 5.30, and do you take Bupa? Thanks.",
+    "rating": null,
+    "received_at": "2026-07-29T17:44:58.612734+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Aisha Rahman",
+      "email": "aisha.rahman@hotmail.com",
+      "message": "Two things really - do you have anything after 5.30, and do you take Bupa? Thanks.",
+      "submitted_at": "2026-07-29T17:44:58.612734Z"
     }
   },
   {
     "external_id": "mid.2d7891d13a2144fd951c932b3d554d46",
     "channel": "instagram_dm",
     "category": "single_fact",
-    "author_name": "jenny",
-    "content": "do u offer emrgency apointments??",
+    "author_name": "dan",
+    "content": "wot time do u shut on a friday",
     "rating": null,
-    "received_at": "2026-07-29T20:24:22.020587+00:00",
+    "received_at": "2026-07-29T12:38:44.902000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1785356662020,
+          "id": "17841445902613087",
+          "time": 1785328724902,
           "messaging": [
             {
               "sender": {
                 "id": "1080787450589154"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1785356662020,
+              "timestamp": 1785328724902,
               "message": {
                 "mid": "mid.2d7891d13a2144fd951c932b3d554d46",
-                "text": "do u offer emrgency apointments??"
+                "text": "wot time do u shut on a friday"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "0a3499753f7540a1bdd88fbec01b1ad7",
+    "channel": "contact_form",
+    "category": "single_fact",
+    "author_name": "Joseph Mensah",
+    "content": "How much is a first appointment for someone who's never been to you before?",
+    "rating": null,
+    "received_at": "2026-07-29T08:37:19.204518+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Joseph Mensah",
+      "email": "j.mensah04@outlook.com",
+      "message": "How much is a first appointment for someone who's never been to you before?",
+      "submitted_at": "2026-07-29T08:37:19.204518Z"
+    }
+  },
+  {
+    "external_id": "469f26ae8c704391b205e1fc487d0e8b",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Meg Iqbal",
+    "content": "Fifty minutes past my appointment time before anyone came out, no explanation, no apology, and a waiting room full of people in the same boat. There's also a £40 line on my receipt marked DNA that nobody could explain to me. I turned up, so what is it actually for? Would like an answer before I pay it.",
+    "rating": 2,
+    "received_at": "2026-07-28T13:19:07.664251+00:00",
+    "payload": {
+      "name": "accounts/1001/locations/2002/reviews/469f26ae8c704391b205e1fc487d0e8b",
+      "reviewId": "469f26ae8c704391b205e1fc487d0e8b",
+      "reviewer": {
+        "displayName": "Meg Iqbal",
+        "isAnonymous": false
+      },
+      "starRating": "TWO",
+      "comment": "Fifty minutes past my appointment time before anyone came out, no explanation, no apology, and a waiting room full of people in the same boat. There's also a £40 line on my receipt marked DNA that nobody could explain to me. I turned up, so what is it actually for? Would like an answer before I pay it.",
+      "createTime": "2026-07-28T13:19:07.664251Z",
+      "updateTime": "2026-07-28T13:19:07.664251Z"
+    }
+  },
+  {
+    "external_id": "mid.5b8befbe784c49b5bc5ce313d3557930",
+    "channel": "instagram_dm",
+    "category": "vague",
+    "author_name": "amelia_ok",
+    "content": "prices?",
+    "rating": null,
+    "received_at": "2026-07-28T12:14:36.591000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785240876591,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1055171739148726"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785240876591,
+              "message": {
+                "mid": "mid.5b8befbe784c49b5bc5ce313d3557930",
+                "text": "prices?"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "ef9b0a3bb23d4f0b83117b39fbc9dff4",
+    "channel": "contact_form",
+    "category": "multi_fact",
+    "author_name": "Gemma Okonkwo",
+    "content": "I haven't seen a dentist in about eight years and I'll be honest, it's because the whole thing frightens me. Do you do anything for nervous patients, and what would a first appointment cost?",
+    "rating": null,
+    "received_at": "2026-07-28T10:26:12.339875+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Gemma Okonkwo",
+      "email": "g.okonkwo88@gmail.com",
+      "message": "I haven't seen a dentist in about eight years and I'll be honest, it's because the whole thing frightens me. Do you do anything for nervous patients, and what would a first appointment cost?",
+      "submitted_at": "2026-07-28T10:26:12.339875Z"
+    }
+  },
+  {
+    "external_id": "mid.3e48e2c9cd174b7091d7c75521148aa3",
+    "channel": "instagram_dm",
+    "category": "single_fact",
+    "author_name": "mo_hassan",
+    "content": "how much is a fillin",
+    "rating": null,
+    "received_at": "2026-07-28T08:57:16.235000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785229036235,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1083770554746685"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785229036235,
+              "message": {
+                "mid": "mid.3e48e2c9cd174b7091d7c75521148aa3",
+                "text": "how much is a fillin"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "mid.15ac58c05c0d481fa9eb65ad352e59db",
+    "channel": "instagram_dm",
+    "category": "vague",
+    "author_name": "nathan.b",
+    "content": "appointment",
+    "rating": null,
+    "received_at": "2026-07-27T17:31:59.208000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785173519208,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1047917619916802"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785173519208,
+              "message": {
+                "mid": "mid.15ac58c05c0d481fa9eb65ad352e59db",
+                "text": "appointment"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "a1183c198ab24d53ad3f3228e9f5decd",
+    "channel": "contact_form",
+    "category": "multi_fact",
+    "author_name": "Priyanka Shirke",
+    "content": "One of my crowns has come loose. How many visits does a replacement take and roughly what am I looking at?",
+    "rating": null,
+    "received_at": "2026-07-27T13:02:26.881443+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Priyanka Shirke",
+      "email": "priyanka.shirke@icloud.com",
+      "message": "One of my crowns has come loose. How many visits does a replacement take and roughly what am I looking at?",
+      "submitted_at": "2026-07-27T13:02:26.881443Z"
+    }
+  },
+  {
+    "external_id": "mid.12ee972b090e4e52aa105c121d373bbf",
+    "channel": "instagram_dm",
+    "category": "single_fact",
+    "author_name": "leah.mcb",
+    "content": "do u do emergency appointments same day",
+    "rating": null,
+    "received_at": "2026-07-27T08:05:39.671000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1785139539671,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1015085733100216"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1785139539671,
+              "message": {
+                "mid": "mid.12ee972b090e4e52aa105c121d373bbf",
+                "text": "do u do emergency appointments same day"
               }
             }
           ]
@@ -52,305 +356,184 @@
     "external_id": "2bd31d16262640ec942b9db491c56e31",
     "channel": "contact_form",
     "category": "single_fact",
-    "author_name": "Mark Davis",
-    "content": "How much does a basic cleaning cost?",
+    "author_name": "Rob Tomlinson",
+    "content": "Are you taking on adult NHS patients at the moment?",
     "rating": null,
-    "received_at": "2026-07-29T12:00:22.020587+00:00",
+    "received_at": "2026-07-27T07:58:44.913267+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Mark Davis",
-      "email": "mark.davis@example.com",
-      "message": "How much does a basic cleaning cost?",
-      "submitted_at": "2026-07-29T12:00:22.020587Z"
+      "name": "Rob Tomlinson",
+      "email": "rob.t1985@yahoo.co.uk",
+      "message": "Are you taking on adult NHS patients at the moment?",
+      "submitted_at": "2026-07-27T07:58:44.913267Z"
     }
   },
   {
-    "external_id": "mid.3e48e2c9cd174b7091d7c75521148aa3",
+    "external_id": "174ff9fa1aad4520821909b552330cac",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Paul Nnaji",
+    "content": "Booked six weeks in advance, cancelled by text at half nine the night before. Second time now.",
+    "rating": 1,
+    "received_at": "2026-07-26T19:47:22.508913+00:00",
+    "payload": {
+      "name": "accounts/1001/locations/2002/reviews/174ff9fa1aad4520821909b552330cac",
+      "reviewId": "174ff9fa1aad4520821909b552330cac",
+      "reviewer": {
+        "displayName": "Paul Nnaji",
+        "isAnonymous": false
+      },
+      "starRating": "ONE",
+      "comment": "Booked six weeks in advance, cancelled by text at half nine the night before. Second time now.",
+      "createTime": "2026-07-26T19:47:22.508913Z",
+      "updateTime": "2026-07-26T19:47:22.508913Z"
+    }
+  },
+  {
+    "external_id": "94e9d7f25c904f98ab8ce2c35a3a7c6b",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Sean Barrowclough",
+    "content": "Cancelled on me twice in a row and then offered me something in October. I've gone elsewhere. Shame, the dentist was lovely the one time I actually got seen.",
+    "rating": 1,
+    "received_at": "2026-07-24T18:22:50.193708+00:00",
+    "payload": {
+      "name": "accounts/1001/locations/2002/reviews/94e9d7f25c904f98ab8ce2c35a3a7c6b",
+      "reviewId": "94e9d7f25c904f98ab8ce2c35a3a7c6b",
+      "reviewer": {
+        "displayName": "Sean Barrowclough",
+        "isAnonymous": false
+      },
+      "starRating": "ONE",
+      "comment": "Cancelled on me twice in a row and then offered me something in October. I've gone elsewhere. Shame, the dentist was lovely the one time I actually got seen.",
+      "createTime": "2026-07-24T18:22:50.193708Z",
+      "updateTime": "2026-07-24T18:22:50.193708Z"
+    }
+  },
+  {
+    "external_id": "mid.ad939cc44df4433baeac0bbc9e1ce896",
     "channel": "instagram_dm",
-    "category": "single_fact",
-    "author_name": "Sofia Rodriguez",
-    "content": "r u open on new years day?",
+    "category": "spam",
+    "author_name": "Marketing Team",
+    "content": "Hi - quick one. We ran an audit this morning and you're sitting on page 3 for \"emergency dentist near me\" across south Manchester, behind two practices with worse reviews than yours. We fix that in 90 days or we refund the retainer. Free 10 minute call this week?",
     "rating": null,
-    "received_at": "2026-07-29T03:36:22.020587+00:00",
+    "received_at": "2026-07-24T15:12:40.816000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1785296182020,
+          "id": "17841445902613087",
+          "time": 1784905960816,
           "messaging": [
             {
               "sender": {
-                "id": "1083770554746685"
+                "id": "1088090609719096"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1785296182020,
+              "timestamp": 1784905960816,
               "message": {
-                "mid": "mid.3e48e2c9cd174b7091d7c75521148aa3",
-                "text": "r u open on new years day?"
+                "mid": "mid.ad939cc44df4433baeac0bbc9e1ce896",
+                "text": "Hi - quick one. We ran an audit this morning and you're sitting on page 3 for \"emergency dentist near me\" across south Manchester, behind two practices with worse reviews than yours. We fix that in 90 days or we refund the retainer. Free 10 minute call this week?"
               }
             }
           ]
         }
       ]
-    }
-  },
-  {
-    "external_id": "7ee7f72cb65648a99c136933ccec7b85",
-    "channel": "contact_form",
-    "category": "single_fact",
-    "author_name": "David Lee",
-    "content": "Do you offer financing options for patients without insurance?",
-    "rating": null,
-    "received_at": "2026-07-28T19:12:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "David Lee",
-      "email": "david.lee@example.com",
-      "message": "Do you offer financing options for patients without insurance?",
-      "submitted_at": "2026-07-28T19:12:22.020587Z"
-    }
-  },
-  {
-    "external_id": "mid.7f21f231e5d2439e820368c9ebac7640",
-    "channel": "instagram_dm",
-    "category": "single_fact",
-    "author_name": "Emily Patel",
-    "content": "how much is a small filling?",
-    "rating": null,
-    "received_at": "2026-07-28T10:48:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1785235702020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1036170077409220"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1785235702020,
-              "message": {
-                "mid": "mid.7f21f231e5d2439e820368c9ebac7640",
-                "text": "how much is a small filling?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "a1183c198ab24d53ad3f3228e9f5decd",
-    "channel": "contact_form",
-    "category": "single_fact",
-    "author_name": "Kevin White",
-    "content": "What time do you close on Fridays?",
-    "rating": null,
-    "received_at": "2026-07-28T02:24:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Kevin White",
-      "email": "kevin.white@example.com",
-      "message": "What time do you close on Fridays?",
-      "submitted_at": "2026-07-28T02:24:22.020587Z"
-    }
-  },
-  {
-    "external_id": "mid.ffd1ce23bcc742c29ce0edbfa7300915",
-    "channel": "instagram_dm",
-    "category": "single_fact",
-    "author_name": "Jessica Lopez",
-    "content": "do u accept metlife insurance?",
-    "rating": null,
-    "received_at": "2026-07-27T18:00:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1785175222020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1083753077420948"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1785175222020,
-              "message": {
-                "mid": "mid.ffd1ce23bcc742c29ce0edbfa7300915",
-                "text": "do u accept metlife insurance?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "ef9b0a3bb23d4f0b83117b39fbc9dff4",
-    "channel": "contact_form",
-    "category": "single_fact",
-    "author_name": "Michael Kim",
-    "content": "How much does an at-home whitening kit cost?",
-    "rating": null,
-    "received_at": "2026-07-27T09:36:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Michael Kim",
-      "email": "michael.kim@example.com",
-      "message": "How much does an at-home whitening kit cost?",
-      "submitted_at": "2026-07-27T09:36:22.020587Z"
     }
   },
   {
     "external_id": "mid.954c67acdd09451b877c9de8e6163a91",
     "channel": "instagram_dm",
-    "category": "single_fact",
-    "author_name": "Sarah Taylor",
-    "content": "r u open on sundays?",
+    "category": "not_in_kb",
+    "author_name": "ryanjd",
+    "content": "how far r u from the tram stop",
     "rating": null,
-    "received_at": "2026-07-27T01:12:22.020587+00:00",
+    "received_at": "2026-07-24T13:58:05.749000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1785114742020,
+          "id": "17841445902613087",
+          "time": 1784901485749,
           "messaging": [
             {
               "sender": {
                 "id": "1012572544036607"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1785114742020,
+              "timestamp": 1784901485749,
               "message": {
                 "mid": "mid.954c67acdd09451b877c9de8e6163a91",
-                "text": "r u open on sundays?"
+                "text": "how far r u from the tram stop"
               }
             }
           ]
         }
       ]
-    }
-  },
-  {
-    "external_id": "0a3499753f7540a1bdd88fbec01b1ad7",
-    "channel": "contact_form",
-    "category": "multi_fact",
-    "author_name": "Emily Wilson",
-    "content": "Hi, I'd like to schedule a cleaning on Saturday. What time are you open and how much does it cost?",
-    "rating": null,
-    "received_at": "2026-07-26T16:48:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Emily Wilson",
-      "email": "emily.wilson@example.com",
-      "message": "Hi, I'd like to schedule a cleaning on Saturday. What time are you open and how much does it cost?",
-      "submitted_at": "2026-07-26T16:48:22.020587Z"
-    }
-  },
-  {
-    "external_id": "mid.5b8befbe784c49b5bc5ce313d3557930",
-    "channel": "instagram_dm",
-    "category": "multi_fact",
-    "author_name": "Jen",
-    "content": "Hey! do u do fillings on friday? and how much?",
-    "rating": null,
-    "received_at": "2026-07-26T08:24:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1785054262020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1055171739148726"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1785054262020,
-              "message": {
-                "mid": "mid.5b8befbe784c49b5bc5ce313d3557930",
-                "text": "Hey! do u do fillings on friday? and how much?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "8b74131097184a92a95b7e6c5d935e84",
-    "channel": "contact_form",
-    "category": "multi_fact",
-    "author_name": "David Lee",
-    "content": "I need to schedule a whitening service on a day when you're open late. What are your hours on Thursday and how much does the service cost?",
-    "rating": null,
-    "received_at": "2026-07-26T00:00:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "David Lee",
-      "email": "david.lee@example.com",
-      "message": "I need to schedule a whitening service on a day when you're open late. What are your hours on Thursday and how much does the service cost?",
-      "submitted_at": "2026-07-26T00:00:22.020587Z"
     }
   },
   {
     "external_id": "9f5f20c755a944aba79c928391f85091",
     "channel": "contact_form",
-    "category": "multi_fact",
-    "author_name": "Sarita",
-    "content": "Hi, I want to get a crown on a day when I don't have to take off work. Are you open on weekends? And do you have any payment plans for crowns?",
+    "category": "single_fact",
+    "author_name": "Duncan Reilly",
+    "content": "I've got one of your cards here that says a new patient exam is £58, but my mum reckons she paid more than that last week. Which is right?",
     "rating": null,
-    "received_at": "2026-07-25T15:36:22.020587+00:00",
+    "received_at": "2026-07-24T10:05:37.448026+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Sarita",
-      "email": "sarita@example.com",
-      "message": "Hi, I want to get a crown on a day when I don't have to take off work. Are you open on weekends? And do you have any payment plans for crowns?",
-      "submitted_at": "2026-07-25T15:36:22.020587Z"
+      "name": "Duncan Reilly",
+      "email": "d.reilly.mcr@outlook.com",
+      "message": "I've got one of your cards here that says a new patient exam is £58, but my mum reckons she paid more than that last week. Which is right?",
+      "submitted_at": "2026-07-24T10:05:37.448026Z"
     }
   },
   {
-    "external_id": "mid.15ac58c05c0d481fa9eb65ad352e59db",
-    "channel": "instagram_dm",
-    "category": "multi_fact",
-    "author_name": "Mike",
-    "content": "Yo, can I get a filling on sat? how much?",
+    "external_id": "8b74131097184a92a95b7e6c5d935e84",
+    "channel": "contact_form",
+    "category": "single_fact",
+    "author_name": "Claire Byrne",
+    "content": "What happens if I have to cancel? My rota changes at short notice and I don't want to get stung.",
     "rating": null,
-    "received_at": "2026-07-25T07:12:22.020587+00:00",
+    "received_at": "2026-07-23T12:41:03.775190+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Claire Byrne",
+      "email": "clairebyrne.uk@icloud.com",
+      "message": "What happens if I have to cancel? My rota changes at short notice and I don't want to get stung.",
+      "submitted_at": "2026-07-23T12:41:03.775190Z"
+    }
+  },
+  {
+    "external_id": "mid.7f21f231e5d2439e820368c9ebac7640",
+    "channel": "instagram_dm",
+    "category": "single_fact",
+    "author_name": "jords_94",
+    "content": "is the hygienist in on a wednesday",
+    "rating": null,
+    "received_at": "2026-07-23T09:33:02.156000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784963542020,
+          "id": "17841445902613087",
+          "time": 1784799182156,
           "messaging": [
             {
               "sender": {
-                "id": "1047917619916802"
+                "id": "1036170077409220"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784963542020,
+              "timestamp": 1784799182156,
               "message": {
-                "mid": "mid.15ac58c05c0d481fa9eb65ad352e59db",
-                "text": "Yo, can I get a filling on sat? how much?"
+                "mid": "mid.7f21f231e5d2439e820368c9ebac7640",
+                "text": "is the hygienist in on a wednesday"
               }
             }
           ]
@@ -362,382 +545,92 @@
     "external_id": "231aa76b9be04e93a80c4c1ffaec831b",
     "channel": "contact_form",
     "category": "multi_fact",
-    "author_name": "Rukmini Patel",
-    "content": "Hi, I'd like to schedule a consultation for dental services on Wednesday. Can you please let me know your hours and availability for that day? Additionally, what are your pricing options for cleanings and fillings?",
+    "author_name": "Nell Hartley",
+    "content": "Can I get my two on the NHS and book myself in privately at the same time? And what are the Saturday hours?",
     "rating": null,
-    "received_at": "2026-07-24T22:48:22.020587+00:00",
+    "received_at": "2026-07-23T08:48:31.026594+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Rukmini Patel",
-      "email": "rukmini.patel@example.com",
-      "message": "Hi, I'd like to schedule a consultation for dental services on Wednesday. Can you please let me know your hours and availability for that day? Additionally, what are your pricing options for cleanings and fillings?",
-      "submitted_at": "2026-07-24T22:48:22.020587Z"
+      "name": "Nell Hartley",
+      "email": "nellhartley@yahoo.co.uk",
+      "message": "Can I get my two on the NHS and book myself in privately at the same time? And what are the Saturday hours?",
+      "submitted_at": "2026-07-23T08:48:31.026594Z"
     }
   },
   {
-    "external_id": "mid.d6568b2690bd45e891c2360da6980f5f",
-    "channel": "instagram_dm",
-    "category": "multi_fact",
-    "author_name": "Liam",
-    "content": "hey, do u have any discounts for students? and can i get a cleaning on friday?",
-    "rating": null,
-    "received_at": "2026-07-24T14:24:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1784903062020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1059254632281694"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1784903062020,
-              "message": {
-                "mid": "mid.d6568b2690bd45e891c2360da6980f5f",
-                "text": "hey, do u have any discounts for students? and can i get a cleaning on friday?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "97c2908ed8c94f818df8143a9de934b7",
+    "external_id": "4aefe4db8350431ab2f8a591c748c08a",
     "channel": "contact_form",
-    "category": "multi_fact",
-    "author_name": "Ava Morales",
-    "content": "Hi, I need to schedule a cleaning and a whitening service. Can you please let me know your availability on Tuesday and Thursday, and also provide me with pricing information for both services?",
+    "category": "spam",
+    "author_name": "Nadia K.",
+    "content": "Hello, please note our bank details changed this month. Kindly update the account held on file for invoice INV-40821 before your next payment run. New details are on the remittance sent Tuesday - reply here and I will resend if it has not come through. Payments to the old account cannot be recovered.",
     "rating": null,
-    "received_at": "2026-07-24T06:00:22.020587+00:00",
+    "received_at": "2026-07-22T15:38:14.807269+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Ava Morales",
-      "email": "ava.morales@example.com",
-      "message": "Hi, I need to schedule a cleaning and a whitening service. Can you please let me know your availability on Tuesday and Thursday, and also provide me with pricing information for both services?",
-      "submitted_at": "2026-07-24T06:00:22.020587Z"
+      "name": "Nadia K.",
+      "email": "accounts@dentsupply-uk-billing.com",
+      "message": "Hello, please note our bank details changed this month. Kindly update the account held on file for invoice INV-40821 before your next payment run. New details are on the remittance sent Tuesday - reply here and I will resend if it has not come through. Payments to the old account cannot be recovered.",
+      "submitted_at": "2026-07-22T15:38:14.807269Z"
     }
   },
   {
     "external_id": "7a572dad533f4e998bc1edc7f9a16352",
     "channel": "contact_form",
     "category": "not_in_kb",
-    "author_name": "Emily Chen",
-    "content": "Do you offer any special discounts for students or seniors?",
+    "author_name": "Marcus Boateng",
+    "content": "Is there parking at the practice or is it permit only round there? I'd be driving over from Bolton.",
     "rating": null,
-    "received_at": "2026-07-23T21:36:22.020587+00:00",
+    "received_at": "2026-07-22T12:53:17.593820+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "Emily Chen",
-      "email": "emily.chen@example.com",
-      "message": "Do you offer any special discounts for students or seniors?",
-      "submitted_at": "2026-07-23T21:36:22.020587Z"
+      "name": "Marcus Boateng",
+      "email": "marcus.boateng@outlook.com",
+      "message": "Is there parking at the practice or is it permit only round there? I'd be driving over from Bolton.",
+      "submitted_at": "2026-07-22T12:53:17.593820Z"
     }
   },
   {
-    "external_id": "mid.6f467af1507646f9a14e887a6969b8b0",
-    "channel": "instagram_dm",
-    "category": "not_in_kb",
-    "author_name": "Jen",
-    "content": "can i get a teeth cleaning and a filling on the same day?",
-    "rating": null,
-    "received_at": "2026-07-23T13:12:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1784812342020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1094876083564310"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1784812342020,
-              "message": {
-                "mid": "mid.6f467af1507646f9a14e887a6969b8b0",
-                "text": "can i get a teeth cleaning and a filling on the same day?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "ba144f42b809415cbab3d13cfcad8254",
+    "external_id": "c0e5792b273a494ea079dd658febca2f",
     "channel": "contact_form",
-    "category": "not_in_kb",
-    "author_name": "David Lee",
-    "content": "I'm interested in getting a crown, but I'm not sure what kind of material would be best for me. Can you please provide more information on the different types of crowns you offer and their prices?",
+    "category": "multi_fact",
+    "author_name": "Tomasz Wójcik",
+    "content": "What's the price on the home whitening, and is the hygienist ever in on a Saturday?",
     "rating": null,
-    "received_at": "2026-07-23T04:48:22.020587+00:00",
+    "received_at": "2026-07-22T09:19:52.760118+00:00",
     "payload": {
       "form": "regulars-widget",
-      "name": "David Lee",
-      "email": "david.lee@example.com",
-      "message": "I'm interested in getting a crown, but I'm not sure what kind of material would be best for me. Can you please provide more information on the different types of crowns you offer and their prices?",
-      "submitted_at": "2026-07-23T04:48:22.020587Z"
+      "name": "Tomasz Wójcik",
+      "email": "t.wojcik22@gmail.com",
+      "message": "What's the price on the home whitening, and is the hygienist ever in on a Saturday?",
+      "submitted_at": "2026-07-22T09:19:52.760118Z"
     }
   },
   {
-    "external_id": "mid.99722d59ea0d4e49a1f7d66f2a83bd79",
+    "external_id": "mid.18b5f130905846c58462b0fef1d09b1a",
     "channel": "instagram_dm",
-    "category": "not_in_kb",
-    "author_name": "Samantha",
-    "content": "do you have any experience with dental work for people with disabilities?",
+    "category": "spam",
+    "author_name": "Dylan",
+    "content": "hey - we run ads for dental practices, currently getting a clinic in Leeds 14 implant enquiries a month. got 2 spots left for august. want the case study?",
     "rating": null,
-    "received_at": "2026-07-22T20:24:22.020587+00:00",
+    "received_at": "2026-07-21T16:41:53.372000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784751862020,
+          "id": "17841445902613087",
+          "time": 1784652113372,
           "messaging": [
             {
               "sender": {
-                "id": "1042980423760109"
+                "id": "1083313321631503"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784751862020,
+              "timestamp": 1784652113372,
               "message": {
-                "mid": "mid.99722d59ea0d4e49a1f7d66f2a83bd79",
-                "text": "do you have any experience with dental work for people with disabilities?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "a0cd0a8534a541b9a1b803207670429e",
-    "channel": "contact_form",
-    "category": "not_in_kb",
-    "author_name": "Raj Patel",
-    "content": "I'm looking to switch to a new dentist and I'm considering your clinic. Can you please tell me more about your dentists' qualifications and experience?",
-    "rating": null,
-    "received_at": "2026-07-22T12:00:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Raj Patel",
-      "email": "raj.patel@example.com",
-      "message": "I'm looking to switch to a new dentist and I'm considering your clinic. Can you please tell me more about your dentists' qualifications and experience?",
-      "submitted_at": "2026-07-22T12:00:22.020587Z"
-    }
-  },
-  {
-    "external_id": "456bc753917548f7995467f7d8c6de8d",
-    "channel": "contact_form",
-    "category": "not_in_kb",
-    "author_name": "Kevin White",
-    "content": "Are there any additional costs associated with the consultation, or is it completely free?",
-    "rating": null,
-    "received_at": "2026-07-22T03:36:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Kevin White",
-      "email": "kevin.white@example.com",
-      "message": "Are there any additional costs associated with the consultation, or is it completely free?",
-      "submitted_at": "2026-07-22T03:36:22.020587Z"
-    }
-  },
-  {
-    "external_id": "f78c0b915ec6463fa1cef78906dac305",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "Kayla Jenkins",
-    "content": "I was really looking forward to my appointment at Brightside Dental Clinic but the wait time was ridiculous! I was scheduled for 2pm and didnt get seen till 3:30. The staff seemed really unfriendly too. Definitely wont be coming back.",
-    "rating": 1,
-    "received_at": "2026-07-21T19:12:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/f78c0b915ec6463fa1cef78906dac305",
-      "reviewId": "f78c0b915ec6463fa1cef78906dac305",
-      "reviewer": {
-        "displayName": "Kayla Jenkins",
-        "isAnonymous": false
-      },
-      "starRating": "ONE",
-      "comment": "I was really looking forward to my appointment at Brightside Dental Clinic but the wait time was ridiculous! I was scheduled for 2pm and didnt get seen till 3:30. The staff seemed really unfriendly too. Definitely wont be coming back.",
-      "createTime": "2026-07-21T19:12:22.020587Z",
-      "updateTime": "2026-07-21T19:12:22.020587Z"
-    }
-  },
-  {
-    "external_id": "469f26ae8c704391b205e1fc487d0e8b",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "David Kim",
-    "content": "Went to Brightside Dental for a cleaning and they ended up charging me way more than I expected. The dentist was nice but the receptionist was super rude when I questioned the bill. 2 stars and thats being generous.",
-    "rating": 2,
-    "received_at": "2026-07-21T10:48:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/469f26ae8c704391b205e1fc487d0e8b",
-      "reviewId": "469f26ae8c704391b205e1fc487d0e8b",
-      "reviewer": {
-        "displayName": "David Kim",
-        "isAnonymous": false
-      },
-      "starRating": "TWO",
-      "comment": "Went to Brightside Dental for a cleaning and they ended up charging me way more than I expected. The dentist was nice but the receptionist was super rude when I questioned the bill. 2 stars and thats being generous.",
-      "createTime": "2026-07-21T10:48:22.020587Z",
-      "updateTime": "2026-07-21T10:48:22.020587Z"
-    }
-  },
-  {
-    "external_id": "174ff9fa1aad4520821909b552330cac",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "Sofia Rodriguez",
-    "content": "I had the WORST experience at Brightside Dental! I went in for a whitening treatment and they messed it up completely. Now my teeth are all sensitive and look worse than before. The staff didnt even apologize or offer to fix it. Never going back!",
-    "rating": 1,
-    "received_at": "2026-07-21T02:24:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/174ff9fa1aad4520821909b552330cac",
-      "reviewId": "174ff9fa1aad4520821909b552330cac",
-      "reviewer": {
-        "displayName": "Sofia Rodriguez",
-        "isAnonymous": false
-      },
-      "starRating": "ONE",
-      "comment": "I had the WORST experience at Brightside Dental! I went in for a whitening treatment and they messed it up completely. Now my teeth are all sensitive and look worse than before. The staff didnt even apologize or offer to fix it. Never going back!",
-      "createTime": "2026-07-21T02:24:22.020587Z",
-      "updateTime": "2026-07-21T02:24:22.020587Z"
-    }
-  },
-  {
-    "external_id": "94e9d7f25c904f98ab8ce2c35a3a7c6b",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "Ethan Hall",
-    "content": "I scheduled an appointment at Brightside Dental for a filling and they ended up doing the wrong tooth. I had to come back in and get it redone. What a waste of time and money. The staff seemed really disorganized and uncaring.",
-    "rating": 1,
-    "received_at": "2026-07-20T18:00:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/94e9d7f25c904f98ab8ce2c35a3a7c6b",
-      "reviewId": "94e9d7f25c904f98ab8ce2c35a3a7c6b",
-      "reviewer": {
-        "displayName": "Ethan Hall",
-        "isAnonymous": false
-      },
-      "starRating": "ONE",
-      "comment": "I scheduled an appointment at Brightside Dental for a filling and they ended up doing the wrong tooth. I had to come back in and get it redone. What a waste of time and money. The staff seemed really disorganized and uncaring.",
-      "createTime": "2026-07-20T18:00:22.020587Z",
-      "updateTime": "2026-07-20T18:00:22.020587Z"
-    }
-  },
-  {
-    "external_id": "d89c7fa6c8b8498080587fe06afa4c6d",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "Ava Lee",
-    "content": "I was really disappointed with my experience at Brightside Dental. The dentist was nice but the wait time was long and the staff wasnt very friendly. They also got my billing information wrong and now Im getting calls from a collections agency. Fix your admin team, Brightside!",
-    "rating": 2,
-    "received_at": "2026-07-20T09:36:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/d89c7fa6c8b8498080587fe06afa4c6d",
-      "reviewId": "d89c7fa6c8b8498080587fe06afa4c6d",
-      "reviewer": {
-        "displayName": "Ava Lee",
-        "isAnonymous": false
-      },
-      "starRating": "TWO",
-      "comment": "I was really disappointed with my experience at Brightside Dental. The dentist was nice but the wait time was long and the staff wasnt very friendly. They also got my billing information wrong and now Im getting calls from a collections agency. Fix your admin team, Brightside!",
-      "createTime": "2026-07-20T09:36:22.020587Z",
-      "updateTime": "2026-07-20T09:36:22.020587Z"
-    }
-  },
-  {
-    "external_id": "8064fcf857674ca39f3f0a89aa20d999",
-    "channel": "google_review",
-    "category": "angry_review",
-    "author_name": "Liam Patel",
-    "content": "I went to Brightside Dental for a crown and they did a horrible job. The crown is all crooked and hurts when I bite down. The staff didnt listen to my concerns and just told me to come back in 6 months for a follow up. Unbelievable. Dont go to this clinic!",
-    "rating": 1,
-    "received_at": "2026-07-20T01:12:22.020587+00:00",
-    "payload": {
-      "name": "accounts/1001/locations/2002/reviews/8064fcf857674ca39f3f0a89aa20d999",
-      "reviewId": "8064fcf857674ca39f3f0a89aa20d999",
-      "reviewer": {
-        "displayName": "Liam Patel",
-        "isAnonymous": false
-      },
-      "starRating": "ONE",
-      "comment": "I went to Brightside Dental for a crown and they did a horrible job. The crown is all crooked and hurts when I bite down. The staff didnt listen to my concerns and just told me to come back in 6 months for a follow up. Unbelievable. Dont go to this clinic!",
-      "createTime": "2026-07-20T01:12:22.020587Z",
-      "updateTime": "2026-07-20T01:12:22.020587Z"
-    }
-  },
-  {
-    "external_id": "mid.1156678b2a904365b7add5a520d22419",
-    "channel": "instagram_dm",
-    "category": "vague",
-    "author_name": "Jenifer Lopez",
-    "content": "r u open today?",
-    "rating": null,
-    "received_at": "2026-07-19T16:48:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1784479702020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1026563148281387"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1784479702020,
-              "message": {
-                "mid": "mid.1156678b2a904365b7add5a520d22419",
-                "text": "r u open today?"
-              }
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "external_id": "mid.12ee972b090e4e52aa105c121d373bbf",
-    "channel": "instagram_dm",
-    "category": "vague",
-    "author_name": "Mark Davis",
-    "content": "do u do whitening?",
-    "rating": null,
-    "received_at": "2026-07-19T08:24:22.020587+00:00",
-    "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1784449462020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1015085733100216"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1784449462020,
-              "message": {
-                "mid": "mid.12ee972b090e4e52aa105c121d373bbf",
-                "text": "do u do whitening?"
+                "mid": "mid.18b5f130905846c58462b0fef1d09b1a",
+                "text": "hey - we run ads for dental practices, currently getting a clinic in Leeds 14 implant enquiries a month. got 2 spots left for august. want the case study?"
               }
             }
           ]
@@ -748,29 +641,115 @@
   {
     "external_id": "mid.f4c198ff0a84451abb0da4f593ab4997",
     "channel": "instagram_dm",
-    "category": "vague",
-    "author_name": "Emily Chen",
-    "content": "how much 4 a cleaning?",
+    "category": "multi_fact",
+    "author_name": "bex_h",
+    "content": "do u do root canals n how much roughly",
     "rating": null,
-    "received_at": "2026-07-19T00:00:22.020587+00:00",
+    "received_at": "2026-07-21T11:12:48.523000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784419222020,
+          "id": "17841445902613087",
+          "time": 1784632368523,
           "messaging": [
             {
               "sender": {
                 "id": "1076630123633914"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784419222020,
+              "timestamp": 1784632368523,
               "message": {
                 "mid": "mid.f4c198ff0a84451abb0da4f593ab4997",
-                "text": "how much 4 a cleaning?"
+                "text": "do u do root canals n how much roughly"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "d89c7fa6c8b8498080587fe06afa4c6d",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Yvonne Deacon",
+    "content": "The dentist is genuinely good, no complaints there at all. Everything around him is hard work. Rang three times over a fortnight to get a hygienist appointment and gave up in the end. If nobody can answer the phone, put booking on the website.",
+    "rating": 2,
+    "received_at": "2026-07-21T10:36:14.052479+00:00",
+    "payload": {
+      "name": "accounts/1001/locations/2002/reviews/d89c7fa6c8b8498080587fe06afa4c6d",
+      "reviewId": "d89c7fa6c8b8498080587fe06afa4c6d",
+      "reviewer": {
+        "displayName": "Yvonne Deacon",
+        "isAnonymous": false
+      },
+      "starRating": "TWO",
+      "comment": "The dentist is genuinely good, no complaints there at all. Everything around him is hard work. Rang three times over a fortnight to get a hygienist appointment and gave up in the end. If nobody can answer the phone, put booking on the website.",
+      "createTime": "2026-07-21T10:36:14.052479Z",
+      "updateTime": "2026-07-21T10:36:14.052479Z"
+    }
+  },
+  {
+    "external_id": "97c2908ed8c94f818df8143a9de934b7",
+    "channel": "contact_form",
+    "category": "not_in_kb",
+    "author_name": "Steph Wu",
+    "content": "Is there any way to spread the cost of a crown over a few months? Paying it in one go isn't doable for me right now.",
+    "rating": null,
+    "received_at": "2026-07-21T09:48:29.135067+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Steph Wu",
+      "email": "steph.wu2@gmail.com",
+      "message": "Is there any way to spread the cost of a crown over a few months? Paying it in one go isn't doable for me right now.",
+      "submitted_at": "2026-07-21T09:48:29.135067Z"
+    }
+  },
+  {
+    "external_id": "ba144f42b809415cbab3d13cfcad8254",
+    "channel": "contact_form",
+    "category": "not_in_kb",
+    "author_name": "Kenny Doyle",
+    "content": "does anyone there speak polish? its for my dad, his english is ok but he gets flustered and i cant always come with him",
+    "rating": null,
+    "received_at": "2026-07-20T14:07:05.298641+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Kenny Doyle",
+      "email": "kennydoyle@hotmail.con",
+      "message": "does anyone there speak polish? its for my dad, his english is ok but he gets flustered and i cant always come with him",
+      "submitted_at": "2026-07-20T14:07:05.298641Z"
+    }
+  },
+  {
+    "external_id": "mid.ffd1ce23bcc742c29ce0edbfa7300915",
+    "channel": "instagram_dm",
+    "category": "multi_fact",
+    "author_name": "omar.sd",
+    "content": "can i get a checkup and hygienist same visit? how much",
+    "rating": null,
+    "received_at": "2026-07-20T08:34:21.907000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1784536461907,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1083753077420948"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1784536461907,
+              "message": {
+                "mid": "mid.ffd1ce23bcc742c29ce0edbfa7300915",
+                "text": "can i get a checkup and hygienist same visit? how much"
               }
             }
           ]
@@ -782,28 +761,28 @@
     "external_id": "mid.dd6ff951904941b6ba9199f08c079272",
     "channel": "instagram_dm",
     "category": "vague",
-    "author_name": "David Lee",
-    "content": "u guys do crowns?",
+    "author_name": "shaz",
+    "content": "is it open",
     "rating": null,
-    "received_at": "2026-07-18T15:36:22.020587+00:00",
+    "received_at": "2026-07-18T10:17:44.630000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784388982020,
+          "id": "17841445902613087",
+          "time": 1784369864630,
           "messaging": [
             {
               "sender": {
                 "id": "1092055658665111"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784388982020,
+              "timestamp": 1784369864630,
               "message": {
                 "mid": "mid.dd6ff951904941b6ba9199f08c079272",
-                "text": "u guys do crowns?"
+                "text": "is it open"
               }
             }
           ]
@@ -812,64 +791,47 @@
     }
   },
   {
-    "external_id": "mid.18b5f130905846c58462b0fef1d09b1a",
-    "channel": "instagram_dm",
-    "category": "vague",
-    "author_name": "Sofia Rodriguez",
-    "content": "r u taking new patients?",
+    "external_id": "456bc753917548f7995467f7d8c6de8d",
+    "channel": "contact_form",
+    "category": "spam",
+    "author_name": "growth partners",
+    "content": "we run paid social for dental practices - 30 new implant and invisalign enquiries a month or you don't pay. two onboarding slots left this quarter. reply and i'll send the deck over.",
     "rating": null,
-    "received_at": "2026-07-18T07:12:22.020587+00:00",
+    "received_at": "2026-07-18T06:12:33.041985+00:00",
     "payload": {
-      "object": "instagram",
-      "entry": [
-        {
-          "id": "17841400000000001",
-          "time": 1784358742020,
-          "messaging": [
-            {
-              "sender": {
-                "id": "1083313321631503"
-              },
-              "recipient": {
-                "id": "17841400000000001"
-              },
-              "timestamp": 1784358742020,
-              "message": {
-                "mid": "mid.18b5f130905846c58462b0fef1d09b1a",
-                "text": "r u taking new patients?"
-              }
-            }
-          ]
-        }
-      ]
+      "form": "regulars-widget",
+      "name": "growth partners",
+      "email": "sam@growthpartners-media.co.uk",
+      "message": "we run paid social for dental practices - 30 new implant and invisalign enquiries a month or you don't pay. two onboarding slots left this quarter. reply and i'll send the deck over.",
+      "submitted_at": "2026-07-18T06:12:33.041985Z"
     }
   },
   {
     "external_id": "mid.1bab786dc09c4d08b952e26c355cba67",
     "channel": "instagram_dm",
-    "category": "spam",
-    "author_name": "Samantha Lee",
-    "content": "Hey! I saw ur dental clinic online and i wanna offer u a deal on seo services to boost ur online presence",
+    "category": "multi_fact",
+    "author_name": "kirsty.ann.w",
+    "content": "do u open late any day n do u take card",
     "rating": null,
-    "received_at": "2026-07-17T22:48:22.020587+00:00",
+    "received_at": "2026-07-17T16:53:11.064000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784328502020,
+          "id": "17841445902613087",
+          "time": 1784307191064,
           "messaging": [
             {
               "sender": {
                 "id": "1044698840891459"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784328502020,
+              "timestamp": 1784307191064,
               "message": {
                 "mid": "mid.1bab786dc09c4d08b952e26c355cba67",
-                "text": "Hey! I saw ur dental clinic online and i wanna offer u a deal on seo services to boost ur online presence"
+                "text": "do u open late any day n do u take card"
               }
             }
           ]
@@ -878,47 +840,68 @@
     }
   },
   {
-    "external_id": "c0e5792b273a494ea079dd658febca2f",
-    "channel": "contact_form",
-    "category": "spam",
-    "author_name": "Raj Patel",
-    "content": "Dear Brightside Dental Clinic, I am reaching out to offer my services as a social media influencer to promote your business. I have a large following and can help increase your online presence. Please let me know if you are interested.",
-    "rating": null,
-    "received_at": "2026-07-17T14:24:22.020587+00:00",
+    "external_id": "8064fcf857674ca39f3f0a89aa20d999",
+    "channel": "google_review",
+    "category": "angry_review",
+    "author_name": "Tolu Fashola",
+    "content": "Had the whitening trays done and my teeth have been agony for a fortnight. Told that's normal and to take ibuprofen. Nobody offered to see me or even look at it. £295 to be told to get on with it.",
+    "rating": 1,
+    "received_at": "2026-07-17T16:37:55.310468+00:00",
     "payload": {
-      "form": "regulars-widget",
-      "name": "Raj Patel",
-      "email": "raj.patel@example.com",
-      "message": "Dear Brightside Dental Clinic, I am reaching out to offer my services as a social media influencer to promote your business. I have a large following and can help increase your online presence. Please let me know if you are interested.",
-      "submitted_at": "2026-07-17T14:24:22.020587Z"
+      "name": "accounts/1001/locations/2002/reviews/8064fcf857674ca39f3f0a89aa20d999",
+      "reviewId": "8064fcf857674ca39f3f0a89aa20d999",
+      "reviewer": {
+        "displayName": "Tolu Fashola",
+        "isAnonymous": false
+      },
+      "starRating": "ONE",
+      "comment": "Had the whitening trays done and my teeth have been agony for a fortnight. Told that's normal and to take ibuprofen. Nobody offered to see me or even look at it. £295 to be told to get on with it.",
+      "createTime": "2026-07-17T16:37:55.310468Z",
+      "updateTime": "2026-07-17T16:37:55.310468Z"
     }
   },
   {
-    "external_id": "mid.3f2f835976eb4ad5becd5e49211fc842",
+    "external_id": "a0cd0a8534a541b9a1b803207670429e",
+    "channel": "contact_form",
+    "category": "not_in_kb",
+    "author_name": "Dean McGrath",
+    "content": "Is there a disabled bay outside? My wife uses a wheelchair and we'd need to know before booking anything.",
+    "rating": null,
+    "received_at": "2026-07-17T08:26:48.470352+00:00",
+    "payload": {
+      "form": "regulars-widget",
+      "name": "Dean McGrath",
+      "email": "dean.mcgrath@gmial.com",
+      "message": "Is there a disabled bay outside? My wife uses a wheelchair and we'd need to know before booking anything.",
+      "submitted_at": "2026-07-17T08:26:48.470352Z"
+    }
+  },
+  {
+    "external_id": "mid.6f467af1507646f9a14e887a6969b8b0",
     "channel": "instagram_dm",
     "category": "spam",
-    "author_name": "Liam Chen",
-    "content": "Hey brightside dental! wanna collab and give ur patients exclusive deals on crypto-based dental plans?",
+    "author_name": "Aleks",
+    "content": "Hi, your entry on UK Dental Directory expires 05/08. Renewal is £89 + VAT to stay listed and keep your reviews visible. Reply YES and we'll raise the invoice today.",
     "rating": null,
-    "received_at": "2026-07-17T06:00:22.020587+00:00",
+    "received_at": "2026-07-16T15:04:29.947000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784268022020,
+          "id": "17841445902613087",
+          "time": 1784214269947,
           "messaging": [
             {
               "sender": {
-                "id": "1056649479519672"
+                "id": "1094876083564310"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784268022020,
+              "timestamp": 1784214269947,
               "message": {
-                "mid": "mid.3f2f835976eb4ad5becd5e49211fc842",
-                "text": "Hey brightside dental! wanna collab and give ur patients exclusive deals on crypto-based dental plans?"
+                "mid": "mid.6f467af1507646f9a14e887a6969b8b0",
+                "text": "Hi, your entry on UK Dental Directory expires 05/08. Renewal is £89 + VAT to stay listed and keep your reviews visible. Reply YES and we'll raise the invoice today."
               }
             }
           ]
@@ -927,47 +910,64 @@
     }
   },
   {
-    "external_id": "4aefe4db8350431ab2f8a591c748c08a",
-    "channel": "contact_form",
-    "category": "spam",
-    "author_name": "Ava Morales",
-    "content": "Hi, I came across your dental clinic and thought you might be interested in our link building services to improve your website's ranking. Check out our website at https://example.com",
-    "rating": null,
-    "received_at": "2026-07-16T21:36:22.020587+00:00",
-    "payload": {
-      "form": "regulars-widget",
-      "name": "Ava Morales",
-      "email": "ava.morales@example.com",
-      "message": "Hi, I came across your dental clinic and thought you might be interested in our link building services to improve your website's ranking. Check out our website at https://example.com",
-      "submitted_at": "2026-07-16T21:36:22.020587Z"
-    }
-  },
-  {
-    "external_id": "mid.ad939cc44df4433baeac0bbc9e1ce896",
+    "external_id": "mid.d6568b2690bd45e891c2360da6980f5f",
     "channel": "instagram_dm",
-    "category": "spam",
-    "author_name": "Ethan Kim",
-    "content": "hey brightside dental! check out our new website https://dentalseo.pro and lets talk about how we can help u dominate google search results",
+    "category": "vague",
+    "author_name": "gk.photography",
+    "content": "how much",
     "rating": null,
-    "received_at": "2026-07-16T13:12:22.020587+00:00",
+    "received_at": "2026-07-16T13:26:18.475000+00:00",
     "payload": {
       "object": "instagram",
       "entry": [
         {
-          "id": "17841400000000001",
-          "time": 1784207542020,
+          "id": "17841445902613087",
+          "time": 1784208378475,
           "messaging": [
             {
               "sender": {
-                "id": "1088090609719096"
+                "id": "1059254632281694"
               },
               "recipient": {
-                "id": "17841400000000001"
+                "id": "17841445902613087"
               },
-              "timestamp": 1784207542020,
+              "timestamp": 1784208378475,
               "message": {
-                "mid": "mid.ad939cc44df4433baeac0bbc9e1ce896",
-                "text": "hey brightside dental! check out our new website https://dentalseo.pro and lets talk about how we can help u dominate google search results"
+                "mid": "mid.d6568b2690bd45e891c2360da6980f5f",
+                "text": "how much"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "external_id": "mid.99722d59ea0d4e49a1f7d66f2a83bd79",
+    "channel": "instagram_dm",
+    "category": "not_in_kb",
+    "author_name": "hels_r",
+    "content": "is ur surgery upstairs? my mum cant do steps",
+    "rating": null,
+    "received_at": "2026-07-16T09:41:27.382000+00:00",
+    "payload": {
+      "object": "instagram",
+      "entry": [
+        {
+          "id": "17841445902613087",
+          "time": 1784194887382,
+          "messaging": [
+            {
+              "sender": {
+                "id": "1042980423760109"
+              },
+              "recipient": {
+                "id": "17841445902613087"
+              },
+              "timestamp": 1784194887382,
+              "message": {
+                "mid": "mid.99722d59ea0d4e49a1f7d66f2a83bd79",
+                "text": "is ur surgery upstairs? my mum cant do steps"
               }
             }
           ]

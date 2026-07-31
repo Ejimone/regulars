@@ -35,7 +35,7 @@ export function MessageRow({
         data-message-row
         aria-current={active ? "page" : undefined}
         className={cn(
-          "block border-b px-4 py-3 outline-none transition-colors",
+          "block border-b px-3 py-2.5 outline-none transition-colors sm:px-4 sm:py-3",
           "hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-ring/60",
           active && "bg-muted"
         )}
@@ -69,7 +69,7 @@ export function MessageRow({
                 {timeAgo(message.received_at)}
               </time>
             </span>
-            <span className="mt-0.5 line-clamp-2 block text-sm text-muted-foreground">
+            <span className="mt-0.5 line-clamp-1 block text-sm text-muted-foreground sm:line-clamp-2">
               {message.preview}
             </span>
             <span className="mt-1.5 flex items-center gap-1.5">

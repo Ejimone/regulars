@@ -429,6 +429,11 @@ export interface components {
             name: string;
             /** Vertical */
             vertical: string;
+            /**
+             * Is Sample
+             * @default false
+             */
+            is_sample: boolean;
         };
         /** ValidationError */
         ValidationError: {

@@ -1,6 +1,6 @@
 "use client";
 
-import { PencilSimple } from "@phosphor-icons/react";
+import { Pencil } from "lucide-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { use, useState } from "react";
 
@@ -45,7 +45,7 @@ function DocumentCard({
           </div>
         </div>
         <Button variant="ghost" size="icon-sm" aria-label={`Edit ${doc.title}`} onClick={onEdit}>
-          <PencilSimple aria-hidden />
+          <Pencil aria-hidden />
         </Button>
       </div>
       <p className="mt-3 line-clamp-3 text-xs leading-relaxed whitespace-pre-line text-muted-foreground">
@@ -165,7 +165,7 @@ export default function KnowledgePage({
             >
               {save.isPending ? (
                 <>
-                  <Spinner data-icon="inline-start" /> Re-indexing…
+                  <Spinner /> Re-indexing…
                 </>
               ) : (
                 "Save & re-index"

@@ -4,34 +4,34 @@
   "vertical": "restaurant",
   "documents": [
     {
-      "title": "Hours of Operation",
+      "title": "Opening times",
       "kind": "hours",
-      "content": "Monday: 11am - 10pm\nTuesday: 11am - 10pm\nWednesday: 11am - 10pm\nThursday: 11am - 10pm\nFriday: 11am - 11pm\nSaturday: 9am - 11pm\nSunday: 9am - 10pm\nHoliday hours may vary, please call ahead to confirm."
+      "content": "Mon to Thu — 12 til 3, then 5.30 til 10\nFri — 12 til 3, then 5.30 til 11\nSat — 9.30am straight through til 11\nSun — 9.30am til 9.30 (kitchen stops at 9)\n\nkitchen takes last orders half an hour before we close, earlier if it's dead.\nclosed Christmas Day, Boxing Day and the Tuesday after Easter.\nbank holiday mondays we do sunday hours.\nif you're not sure just ring, 0161 883 0027, someone's in from about 10."
     },
     {
-      "title": "Services Offered",
+      "title": "What we do",
       "kind": "services",
-      "content": "## Dine-in Service\nOur dine-in service includes a full menu of fresh pasta, wood-fired pizzas, and other Italian favorites. Reservations are available for parties of all sizes. We strive to provide a warm and welcoming atmosphere for all our guests.\n\n## Takeout Service\nOur takeout service allows you to enjoy our delicious Italian dishes from the comfort of your own home. Simply call ahead to place your order and we will have it ready for pickup at your convenience.\n\n## Catering Service\nOur catering service is perfect for parties, events, and business meetings. We offer a variety of options to fit your needs, including pasta stations, pizza bars, and full-service catering. Our experienced staff will work with you to create a customized menu that fits your budget and preferences.\n\n## Weekend Brunch\nJoin us for weekend brunch, featuring a special menu of Italian-inspired dishes, including eggs, pancakes, and quiche. Brunch is served from 9am - 3pm on Saturdays and Sundays."
+      "content": "Lunch and dinner in the restaurant, 34 covers, all downstairs. pasta made fresh most mornings — not the tagliatelle on a Monday, that's Rosa's day off.\n\nTakeaway is phone only, 0161 883 0027. no delivery apps — we tried Deliveroo for four months in 2024 and the food turned up cold. collection about 20 minutes, longer on a friday.\n\nCatering — cold platters, lasagne trays, arancini, tiramisu in the big dish. office lunches mostly, and christenings. minimum 12 people, 4 days notice, a week if it's a saturday. Marco does these, 07892 445 118.\n\nBrunch sat and sun til 2.30. eggs, the sausage plate, ricotta pancakes for the kids.\n\nSet menu for 8 or more, two or three courses, whole table has to be on it."
     },
     {
-      "title": "Pricing Information",
+      "title": "Prices (needs updating)",
       "kind": "pricing",
-      "content": "## Pasta Dishes\nSpaghetti Bolognese: $18\nFettuccine Alfredo: $19\nVegetarian Lasagna: $17\nGluten-free options available for $2 extra.\n\n## Wood-fired Pizzas\nMargherita Pizza: $15\nQuattro Formaggi Pizza: $18\nMeat Lover's Pizza: $20\nVegan options available for $2 extra.\n\n## Specials and Bundles\nHappy Hour: 2-for-1 drinks and discounted appetizers from 5pm - 7pm daily.\nLunch Special: Choose from a selection of sandwiches, salads, and soups for $10 - $12.\nDinner for Two: A three-course meal for two people, including wine and dessert, for $60."
+      "content": "Pasta\nSpaghetti bolognese £13.50\nTagliatelle al ragu £14.50\nLasagne £13.95\nRavioli di zucca £14.50\nPenne arrabbiata £11.50\ngluten free pasta is £1.50 on top\n\nPizza — wood oven, evenings and weekends only, it takes three hours to come up\nMargherita £9.50\nQuattro formaggi £12.50\nDiavola £12.95\nvegan cheese +£1\n\nArancini £6.50, bruschetta £5.95, tiramisu £6.50.\nBrunch plates £8 to £11. kids £6.95, half pasta and a juice.\nSet menu £22.50 for two courses, £27 for three. Corkage £8 a bottle.\n\nNB this list is from March. pasta went up 50p across the board in June and the pizzas the same, so what's above is all a bit low. need to redo this page properly."
     },
     {
-      "title": "Business Policies",
+      "title": "Booking, paying, the rest of it",
       "kind": "policies",
-      "content": "## Cancellation Policy\nWe require a 24-hour notice for cancellations. If you need to cancel your reservation, please call us at least 24 hours in advance to avoid a $20 per person fee.\n\n## Payment\nWe accept all major credit cards, cash, and contactless payments. For parties of 10 or more, a $50 deposit is required at booking and one check is provided per table.\n\n## Late Arrival Policy\nIf you arrive more than 15 minutes late for your reservation, we may need to seat you at a different table or wait until the next available seating time.\n\n## Refund Policy\nIf you are not satisfied with your meal, please let us know and we will work with you to resolve the issue. Refunds are available on a case-by-case basis."
+      "content": "Bookings\nphone or walk in. we hold a table 15 minutes then it goes, saturdays not even that.\n6 or more and we take card details when you book. £10 a head if you don't turn up or you cancel on the day. cancel by 12 the day before and there's nothing to pay. under 6, no deposit, just ring and tell us.\n\nPaying\ncard, cash, apple pay. we'll split a bill 4 ways, not 11 — it holds the whole room up.\n10% service on tables of 8 or more, comes straight off if you ask.\n\nOther bits\ndogs are fine in the front section, not the back near the pass.\ncorkage £8 a bottle, wednesdays only.\nallergies — tell us when you book, not when you sit down. we won't say a dish is safe over DM, ring and ask for whoever's on the pass.\nif something's wrong tell us that night and we'll take it off the bill."
     },
     {
-      "title": "Frequently Asked Questions",
+      "title": "Stuff people ask",
       "kind": "faq",
-      "content": "Q: Do you have gluten-free options?\nA: Yes, we have a variety of gluten-free options available, including pasta dishes and pizzas.\n\nQ: Can I make a reservation for a large party?\nA: Yes, we can accommodate parties of up to 20 people. Please call ahead to make a reservation.\n\nQ: Do you have vegan options?\nA: Yes, we have a variety of vegan options available, including pasta dishes and pizzas.\n\nQ: Can I order takeout online?\nA: No, we currently only accept takeout orders over the phone or in person.\n\nQ: Do you have a kids' menu?\nA: Yes, we have a kids' menu available for children under the age of 12.\n\nQ: Can I bring my own wine?\nA: No, we have a full bar and do not allow outside wine or liquor.\n\nQ: Do you have parking available?\nA: Yes, we have a small parking lot available for our guests.\n\nQ: Can I get a refund if I don't like my meal?\nA: Yes, we offer refunds on a case-by-case basis if you are not satisfied with your meal.\n\nQ: Do you have wheelchair accessibility?\nA: Yes, our restaurant is wheelchair accessible."
+      "content": "gluten free? yes, gf pasta, £1.50 extra. the fryer is shared so no gf arancini, sorry.\n\nvegan? a few of the pastas, and vegan cheese goes on any pizza. no vegan pudding at the minute, it's on the list.\n\nkids menu? yes, under 10s. half pasta and a juice.\n\ncan I order online? no. phone or come in. people ask this every week, I know.\n\nhigh chairs? three of them. worth saying when you book on a sunday.\n\nwheelchair? level entry at the front and there's room between the tables. the loos are down a step and they are not accessible, which we're not happy about either — we've had it quoted and it's not happening this year.\n\nbig groups? 22 across the two long tables. more than that and we'd be talking about taking the whole place over.\n\nset menu? 8 or more, two or three courses, see the price list.\n\ncan I book brunch? saturday yes. sunday is walk-in only, it's chaos otherwise and we've stopped pretending.\n\nhalf portions for adults? no. kids yes.\n\nis the pasta actually fresh? yes, made most mornings, except monday."
     },
     {
-      "title": "Tone and Voice Guide",
+      "title": "How we talk to people",
       "kind": "tone",
-      "content": "At Nonna Rosa Trattoria, we strive to provide a warm and welcoming atmosphere for all our guests. Here are some guidelines for our tone and voice:\nDo: Use a friendly and approachable tone, be knowledgeable about our menu and services, and always be willing to help.\nDon't: Use a formal or stuffy tone, be dismissive or rude to guests, or use overly technical language.\nExample sign-off: 'Grazie mille for dining with us! We hope to see you again soon.'"
+      "content": "warm but short. we're a 34 cover trattoria, not a call centre.\nuse their first name if we know them, and we know most of them.\nnever argue with a review even when they're wrong. say sorry, offer to sort it, give them the phone number.\ndon't promise anything about allergies over DM. always: ring us and ask for whoever's on the pass.\none exclamation mark is plenty.\na bit of italian is nice, grazie, a presto, but don't lay it on — we're in Chorlton, not Naples.\nsign off from Rosa, or from the team when it's not her writing."
     }
   ]
 }

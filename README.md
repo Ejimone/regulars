@@ -59,7 +59,7 @@ table in the job summary.
 ```bash
 make setup   # creates .env — add your free GROQ_API_KEY from console.groq.com
 make up      # db + api + web via docker compose
-# web: http://localhost:3000   api: http://localhost:8000/docs
+# web: http://localhost:3000   api: http://localhost:8001/docs
 ```
 
 Native dev: `make dev-api` / `make dev-web` (with the compose `db` running). `make test`, `make lint`, `make eval`.

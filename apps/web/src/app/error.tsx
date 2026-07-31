@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowCounterClockwise, WarningCircle } from "@phosphor-icons/react";
+import { RotateCcw, CircleAlert } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -13,7 +13,7 @@ export default function Error({
 }) {
   return (
     <div className="flex h-dvh flex-col items-center justify-center gap-4 p-8 text-center">
-      <WarningCircle className="size-8 text-muted-foreground" aria-hidden />
+      <CircleAlert className="size-8 text-muted-foreground" aria-hidden />
       <div className="space-y-1">
         <h1 className="text-lg font-semibold tracking-tight">Something went wrong</h1>
         <p className="max-w-sm text-sm text-muted-foreground">
@@ -24,7 +24,7 @@ export default function Error({
         </p>
       </div>
       <Button variant="outline" onClick={reset}>
-        <ArrowCounterClockwise data-icon="inline-start" />
+        <RotateCcw />
         Try again
       </Button>
     </div>

@@ -1,11 +1,5 @@
-import type { Icon } from "@phosphor-icons/react";
-import {
-  CircleDashed,
-  EnvelopeSimpleOpen,
-  PaperPlaneTilt,
-  Prohibit,
-  Sparkle,
-} from "@phosphor-icons/react";
+// Status metadata is label + colour only. There was an `Icon` per status that
+// nothing ever rendered; it is gone rather than carrying a decorative glyph.
 
 /** Mirrors MESSAGE_STATUSES in apps/api/app/db/models.py. */
 export const MESSAGE_STATUSES = ["new", "drafted", "flagged", "sent", "spam"] as const;
@@ -20,7 +14,6 @@ type StatusMeta = {
   textClass: string;
   /** Subtle badge treatment: tinted background + readable text. */
   badgeClass: string;
-  Icon: Icon;
 };
 
 export const STATUS_META: Record<MessageStatus, StatusMeta> = {
@@ -29,35 +22,30 @@ export const STATUS_META: Record<MessageStatus, StatusMeta> = {
     shortLabel: "New",
     textClass: "text-status-new",
     badgeClass: "bg-status-new/10 text-status-new",
-    Icon: EnvelopeSimpleOpen,
   },
   drafted: {
     label: "Draft ready",
     shortLabel: "Drafts",
     textClass: "text-status-drafted",
     badgeClass: "bg-status-drafted/10 text-status-drafted",
-    Icon: Sparkle,
   },
   flagged: {
     label: "Needs review",
     shortLabel: "Review",
     textClass: "text-status-flagged",
     badgeClass: "bg-status-flagged/10 text-status-flagged",
-    Icon: CircleDashed,
   },
   sent: {
-    label: "Replied",
-    shortLabel: "Replied",
+    label: "Handled",
+    shortLabel: "Handled",
     textClass: "text-status-sent",
     badgeClass: "bg-status-sent/10 text-status-sent",
-    Icon: PaperPlaneTilt,
   },
   spam: {
     label: "Filtered",
     shortLabel: "Filtered",
     textClass: "text-status-spam",
     badgeClass: "bg-status-spam/10 text-status-spam",
-    Icon: Prohibit,
   },
 };
 

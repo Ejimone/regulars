@@ -1,14 +1,14 @@
 "use client";
 
 import {
-  ArrowsClockwise,
+  RefreshCw,
   Check,
-  PaperPlaneTilt,
-  PencilSimple,
-  Sparkle,
-  WarningCircle,
+  Copy,
+  Pencil,
+  PenLine,
+  CircleAlert,
   X,
-} from "@phosphor-icons/react";
+} from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import { ChannelIcon } from "@/components/channel-icon";
@@ -63,7 +63,14 @@ export function MessageDetailPane({
   const [sending, setSending] = useState(false);
   const [sentModified, setSentModified] = useState<boolean | null>(null);
   const [regenerateOpen, setRegenerateOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
+
+  const copyReply = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
+  };
 
   const applyDetail = useCallback((data: Detail) => {
     setDetail(data);
@@ -157,15 +164,15 @@ export function MessageDetailPane({
       setSentModified(data.was_modified);
       setEditing(false);
       toast.add({
-        title: data.was_modified ? "Reply sent with your edits" : "Reply sent",
+        title: data.was_modified ? "Approved with your edits" : "Reply approved",
         type: "success",
       });
       load();
       onChanged();
     } catch {
       toast.add({
-        title: "Couldn't send the reply",
-        description: "Nothing was sent. Try again.",
+        title: "Couldn't approve the reply",
+        description: "Nothing was changed. Try again.",
         type: "error",
       });
     } finally {
@@ -193,7 +200,7 @@ export function MessageDetailPane({
     if (phase === "error") {
       return (
         <div className="flex h-full flex-col items-center justify-center gap-3 p-8 text-center">
-          <WarningCircle className="size-6 text-muted-foreground" aria-hidden />
+          <CircleAlert className="size-6 text-muted-foreground" aria-hidden />
           <p className="text-sm text-muted-foreground">
             Couldn&apos;t load this message.
           </p>
@@ -256,12 +263,11 @@ export function MessageDetailPane({
 
       {!isSpam && phase === "idle" && (
         <div className="rounded-xl border border-dashed p-8 text-center">
-          <Sparkle className="mx-auto mb-2 size-5 text-muted-foreground" aria-hidden />
           <p className="mb-4 text-sm text-muted-foreground">
-            No draft yet. Regulars answers from this business&apos;s own knowledge base.
+            No draft yet. The reply will be written from your knowledge base.
           </p>
           <Button onClick={() => runDraft()}>
-            <Sparkle data-icon="inline-start" aria-hidden /> Draft reply
+            <PenLine aria-hidden /> Draft reply
           </Button>
         </div>
       )}
@@ -269,11 +275,11 @@ export function MessageDetailPane({
       {!isSpam && phase === "error" && (
         <div className="flex items-center justify-between gap-3 rounded-xl border border-destructive/30 bg-destructive/5 p-4">
           <p className="flex items-center gap-2 text-sm">
-            <WarningCircle className="size-4 text-destructive" aria-hidden />
+            <CircleAlert className="size-4 text-destructive" aria-hidden />
             The draft couldn&apos;t be generated.
           </p>
           <Button variant="outline" size="sm" onClick={() => runDraft()}>
-            <ArrowsClockwise data-icon="inline-start" aria-hidden /> Try again
+            <RefreshCw aria-hidden /> Try again
           </Button>
         </div>
       )}
@@ -288,11 +294,10 @@ export function MessageDetailPane({
       )}
 
       {!isSpam && (phase === "streaming" || phase === "ready") && (
-        <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="flex flex-col gap-4 xl:flex-row">
           <div className="min-w-0 flex-1 self-start rounded-xl border bg-card">
             <div className="flex items-center justify-between gap-3 border-b px-4 py-2.5">
               <div className="flex min-w-0 items-center gap-2">
-                <Sparkle className="size-4 shrink-0 text-primary" aria-hidden />
                 <span className="text-sm font-medium">Draft reply</span>
                 {refused ? (
                   <Badge
@@ -360,39 +365,41 @@ export function MessageDetailPane({
             {phase === "ready" && detail.draft && (
               <div className="flex flex-wrap items-center justify-between gap-2 border-t px-4 py-3">
                 {detail.status === "sent" || sentModified !== null ? (
-                  <p className="flex items-center gap-1.5 text-sm text-primary">
-                    <Check className="size-4" aria-hidden />
-                    Sent{" "}
-                    {sentModified
-                      ? "with your edits — Regulars learns from them"
-                      : "as drafted"}
-                  </p>
+                  <div className="min-w-0">
+                    <p className="flex items-center gap-1.5 text-sm text-primary">
+                      <Check className="size-4" aria-hidden />
+                      Approved {sentModified ? "with your edits" : "as drafted"}
+                    </p>
+                    {sentModified && (
+                      // The edit is persisted with the reply, but nothing
+                      // consumes it — so this says stored, not "learned from".
+                      <p className="mt-1 text-xs text-muted-foreground">
+                        Your edit is saved with this reply.
+                      </p>
+                    )}
+                  </div>
                 ) : editing ? (
                   <div className="flex flex-wrap gap-2">
                     <Button
                       onClick={() => void send(editText)}
                       disabled={sending || editText.trim().length === 0}
                     >
-                      <PaperPlaneTilt data-icon="inline-start" aria-hidden /> Send edited
-                      reply
+                      <Check aria-hidden /> Approve edited reply
                     </Button>
                     <Button variant="ghost" onClick={() => setEditing(false)}>
-                      <X data-icon="inline-start" aria-hidden /> Cancel
+                      <X aria-hidden /> Cancel
                     </Button>
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-2">
                     <Tooltip>
-                      <TooltipTrigger
-                        render={
-                          <Button
-                            onClick={() => void send(detail.draft!.content)}
-                            disabled={sending}
-                          />
-                        }
-                      >
-                        <PaperPlaneTilt data-icon="inline-start" aria-hidden /> Approve
-                        &amp; send
+                      <TooltipTrigger asChild>
+                        <Button
+                          onClick={() => void send(detail.draft!.content)}
+                          disabled={sending}
+                        >
+                          <Check aria-hidden /> Approve reply
+                        </Button>
                       </TooltipTrigger>
                       <TooltipContent>
                         <KbdGroup>
@@ -408,11 +415,18 @@ export function MessageDetailPane({
                         setEditing(true);
                       }}
                     >
-                      <PencilSimple data-icon="inline-start" aria-hidden /> Edit
+                      <Pencil aria-hidden /> Edit
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={() => void copyReply(detail.draft!.content)}
+                    >
+                      {copied ? <Check aria-hidden /> : <Copy aria-hidden />}
+                      {copied ? "Copied" : "Copy"}
                     </Button>
                     {canRegenerate && (
                       <Button variant="ghost" onClick={() => setRegenerateOpen(true)}>
-                        <ArrowsClockwise data-icon="inline-start" aria-hidden />
+                        <RefreshCw aria-hidden />
                         Regenerate
                       </Button>
                     )}
@@ -422,6 +436,16 @@ export function MessageDetailPane({
                   {detail.draft.model} · {formatLatency(detail.draft.latency_ms)}
                 </p>
               </div>
+            )}
+
+            {/* The API marks a human decision; no channel here has an outbound
+                write. Saying so is better than implying a send that never
+                happens. */}
+            {phase === "ready" && detail.draft && (
+              <p className="border-t px-4 py-2.5 text-xs text-muted-foreground">
+                Regulars doesn&apos;t send replies for you yet. Approving marks this
+                handled and keeps the final text here to copy.
+              </p>
             )}
           </div>
 

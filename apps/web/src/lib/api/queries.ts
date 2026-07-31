@@ -11,7 +11,6 @@ export const queryKeys = {
   messages: (slug: string, filters: { status?: string; q?: string; page?: number }) =>
     ["messages", slug, filters] as const,
   allMessages: (slug: string) => ["messages", slug] as const,
-  message: (id: string) => ["message", id] as const,
   stats: (slug: string) => ["stats", slug] as const,
   documents: (slug: string) => ["documents", slug] as const,
 };
@@ -53,14 +52,6 @@ export function useMessages(
     enabled: slug != null,
     placeholderData: keepPreviousData,
     refetchInterval: 30_000,
-  });
-}
-
-export function useMessage(id: string) {
-  return useQuery({
-    queryKey: queryKeys.message(id),
-    queryFn: () =>
-      unwrap(api.GET("/api/messages/{message_id}", { params: { path: { message_id: id } } })),
   });
 }
 

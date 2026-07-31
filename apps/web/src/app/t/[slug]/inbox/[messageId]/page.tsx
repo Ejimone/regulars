@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft } from "@phosphor-icons/react";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
@@ -19,9 +19,11 @@ function MessageDetailScreen({ slug, messageId }: { slug: string; messageId: str
   return (
     <div className="flex min-h-full flex-col">
       <div className="shrink-0 border-b p-2 lg:hidden">
-        <Button variant="ghost" size="sm" render={<Link href={backHref} />}>
-          <ArrowLeft data-icon="inline-start" aria-hidden />
-          Inbox
+        <Button variant="ghost" size="sm" asChild>
+          <Link href={backHref}>
+            <ArrowLeft aria-hidden />
+            Inbox
+          </Link>
         </Button>
       </div>
       <MessageDetailPane

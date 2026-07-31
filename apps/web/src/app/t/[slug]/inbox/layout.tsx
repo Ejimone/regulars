@@ -24,7 +24,7 @@ export default function InboxLayout({
           slug={slug}
           activeMessageId={messageId}
           className={cn(
-            "w-full min-w-0 border-r lg:w-[380px] lg:shrink-0",
+            "w-full min-w-0 border-r lg:w-[340px] lg:shrink-0 xl:w-[380px]",
             hasDetail && "hidden lg:flex"
           )}
         />

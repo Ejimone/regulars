@@ -1,6 +1,6 @@
-"""HTTP surface. Demo-tenant model: no auth in the MVP — every route is
-tenant-scoped by slug/id and the deployed instance serves fictional demo
-businesses. Session-cookie auth is a deliberate post-MVP item (README)."""
+"""HTTP surface. No auth in the MVP — every route is tenant-scoped by slug/id,
+and workspaces backed by committed fixtures are flagged `is_sample` so the UI
+can label them. Session-cookie auth is a deliberate post-MVP item (README)."""
 
 import json
 import time
@@ -89,10 +89,21 @@ def _draft_out(draft: Draft) -> DraftOut:
     )
 
 
+def _is_sample(slug: str) -> bool:
+    """A workspace is sample content when committed fixtures back it — the same
+    condition reset_tenant requires to rebuild one."""
+    from scripts.seed import FIXTURES_DIR  # scripts import app, not vice versa
+
+    return (FIXTURES_DIR / slug / "business.json").exists()
+
+
 @router.get("/tenants")
 def list_tenants(db: DbDep) -> list[TenantOut]:
     tenants = db.scalars(select(Tenant).order_by(Tenant.name)).all()
-    return [TenantOut(slug=t.slug, name=t.name, vertical=t.vertical) for t in tenants]
+    return [
+        TenantOut(slug=t.slug, name=t.name, vertical=t.vertical, is_sample=_is_sample(t.slug))
+        for t in tenants
+    ]
 
 
 @router.get("/tenants/{slug}/messages")

@@ -18,7 +18,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+    // Light-first: the warm editorial palette is the designed experience, so a
+    // new visitor gets it. Dark remains a full alternate via the toggle.
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>{children}</TooltipProvider>
         <Toaster />

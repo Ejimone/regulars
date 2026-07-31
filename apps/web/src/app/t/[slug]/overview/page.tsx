@@ -1,8 +1,9 @@
 "use client";
 
-import { ChartBar } from "@phosphor-icons/react";
+import { ChartColumn } from "lucide-react";
 import { use } from "react";
 
+import { BarRow, ShareBar } from "@/components/charts/bars";
 import { StatTile } from "@/components/stat-tile";
 import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -22,7 +23,7 @@ export default function OverviewPage({
     return (
       <div className="mx-auto max-w-4xl space-y-4 p-4 sm:p-6">
         <Skeleton className="h-7 w-40" />
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {Array.from({ length: 4 }, (_, i) => (
             <Skeleton key={i} className="h-24 w-full" />
           ))}
@@ -37,7 +38,7 @@ export default function OverviewPage({
     return (
       <Empty className="h-full">
         <EmptyMedia variant="icon">
-          <ChartBar aria-hidden />
+          <ChartColumn aria-hidden />
         </EmptyMedia>
         <EmptyHeader>
           <EmptyTitle>No activity yet</EmptyTitle>
@@ -57,7 +58,7 @@ export default function OverviewPage({
     <div className="mx-auto max-w-4xl space-y-6 p-4 sm:p-6">
       <h1 className="text-lg font-semibold tracking-tight">Overview</h1>
 
-      <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         <StatTile label="Messages" value={String(stats.messages_total)} />
         <StatTile
           label="Awaiting review"
@@ -65,11 +66,11 @@ export default function OverviewPage({
           detail="New and flagged messages"
         />
         <StatTile
-          label="Replies sent"
+          label="Replies approved"
           value={String(stats.sends)}
           detail={
             stats.sends > 0 && stats.edit_rate != null
-              ? `${formatPercent(stats.edit_rate)} edited before sending`
+              ? `${formatPercent(stats.edit_rate)} edited first`
               : undefined
           }
         />
@@ -85,22 +86,19 @@ export default function OverviewPage({
       </div>
 
       {decisions > 0 && (
-        <section aria-label="Draft outcomes" className="rounded-xl border bg-card p-4">
+        <section
+          aria-label="Draft outcomes"
+          className="rounded-xl border border-hairline bg-card p-4"
+        >
           <h2 className="text-sm font-medium">Draft outcomes</h2>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Whether the latest draft for each message answered from the knowledge
-            base or asked for time.
+          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+            Whether the latest draft for each message answered from the knowledge base
+            or asked for time.
           </p>
-          <div className="mt-3 flex h-4 w-full gap-0.5 overflow-hidden rounded-full">
-            <div
-              className="h-full rounded-l-full bg-primary"
-              style={{ width: `${Math.max(draftedShare * 100, 2)}%` }}
-            />
-            <div
-              className="h-full flex-1 rounded-r-full bg-muted-foreground/30"
-            />
+          <div className="mt-4">
+            <ShareBar value={draftedShare} label="Answered from the knowledge base" />
           </div>
-          <p className="mt-2 text-xs tabular-nums text-muted-foreground">
+          <p className="mt-2.5 text-xs tabular-nums text-muted-foreground">
             <span className="font-medium text-foreground">
               {formatPercent(draftedShare)} grounded
             </span>{" "}
@@ -110,23 +108,27 @@ export default function OverviewPage({
         </section>
       )}
 
-      <section aria-label="Messages by channel" className="rounded-xl border bg-card p-4">
+      <section
+        aria-label="Messages by channel"
+        className="rounded-xl border border-hairline bg-card p-4"
+      >
         <h2 className="text-sm font-medium">Channels</h2>
-        <ul className="mt-3 space-y-3">
+        <ul className="mt-4 space-y-3">
           {CHANNELS.map((channel) => {
             const { label, Icon } = CHANNEL_META[channel];
             const count = stats.by_channel[channel] ?? 0;
             return (
-              <li key={channel} className="flex items-center gap-3">
-                <span className="flex w-36 shrink-0 items-center gap-2 text-sm text-muted-foreground">
+              // Stacks below sm so the bar keeps usable width on a phone.
+              <li
+                key={channel}
+                className="flex flex-col gap-1.5 sm:flex-row sm:items-center sm:gap-3"
+              >
+                <span className="flex shrink-0 items-center gap-2 text-sm text-muted-foreground sm:w-32 lg:w-36">
                   <Icon className="size-4" aria-hidden />
                   {label}
                 </span>
-                <span className="h-3.5 min-w-0 flex-1">
-                  <span
-                    className="block h-full rounded-r-sm bg-primary"
-                    style={{ width: `${(count / maxChannel) * 100}%` }}
-                  />
+                <span className="min-w-0 flex-1">
+                  <BarRow value={count} max={maxChannel} label={label} />
                 </span>
                 <span className="w-8 shrink-0 text-right text-sm tabular-nums">
                   {count}

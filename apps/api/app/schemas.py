@@ -12,6 +12,9 @@ class TenantOut(BaseModel):
     slug: str
     name: str
     vertical: str
+    #: True when the workspace ships with Regulars as example content, so the UI
+    #: can label it rather than presenting invented businesses as real ones.
+    is_sample: bool = False
 
 
 class CitationOut(BaseModel):

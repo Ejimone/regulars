@@ -1,7 +1,7 @@
 "use client";
 
-import type { Icon } from "@phosphor-icons/react";
-import { Books, ChartBar, MagnifyingGlass, Moon, Sun, Tray } from "@phosphor-icons/react";
+import type { LucideIcon } from "lucide-react";
+import { Library, ChartColumn, Search, Moon, Settings, Sun, Inbox } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -22,10 +22,11 @@ import {
 } from "@/components/ui/sidebar";
 import { useStats } from "@/lib/api/queries";
 
-const NAV: { title: string; segment: string; Icon: Icon }[] = [
-  { title: "Inbox", segment: "inbox", Icon: Tray },
-  { title: "Knowledge", segment: "knowledge", Icon: Books },
-  { title: "Overview", segment: "overview", Icon: ChartBar },
+const NAV: { title: string; segment: string; Icon: LucideIcon }[] = [
+  { title: "Inbox", segment: "inbox", Icon: Inbox },
+  { title: "Knowledge", segment: "knowledge", Icon: Library },
+  { title: "Overview", segment: "overview", Icon: ChartColumn },
+  { title: "Settings", segment: "settings", Icon: Settings },
 ];
 
 function ThemeMenuItem() {
@@ -69,13 +70,11 @@ export function AppSidebar({
                 const active = pathname.startsWith(href);
                 return (
                   <SidebarMenuItem key={segment}>
-                    <SidebarMenuButton
-                      isActive={active}
-                      tooltip={title}
-                      render={<Link href={href} />}
-                    >
-                      <NavIcon weight={active ? "fill" : "regular"} aria-hidden />
-                      <span>{title}</span>
+                    <SidebarMenuButton isActive={active} tooltip={title} asChild>
+                      <Link href={href}>
+                        <NavIcon aria-hidden />
+                        <span>{title}</span>
+                      </Link>
                     </SidebarMenuButton>
                     {segment === "inbox" && attention > 0 && (
                       <SidebarMenuBadge className="tabular-nums">
@@ -93,7 +92,7 @@ export function AppSidebar({
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton onClick={onOpenCommandMenu} tooltip="Command menu">
-              <MagnifyingGlass aria-hidden />
+              <Search aria-hidden />
               <span>Search</span>
               <KbdGroup className="ml-auto group-data-[collapsible=icon]:hidden">
                 <Kbd>⌘K</Kbd>

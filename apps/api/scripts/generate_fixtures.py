@@ -1,4 +1,11 @@
-"""Generate demo-business fixtures with Groq.
+"""Generate sample-business fixtures with Groq.
+
+DESTRUCTIVE. The committed fixtures were hand-edited afterwards to read like
+real customer messages — varied timestamps, real-looking email domains,
+plausible spam, reviews that don't name the business in the third person, and a
+deliberate knowledge-base gap so the "Needs facts" refusal path has an honest
+trigger. Regenerating throws all of that away and restores the templated LLM
+voice. Requires --force for exactly that reason.
 
 Produces, per business:
   fixtures/<slug>/business.json  — knowledge-base documents (hours, services,
@@ -270,6 +277,17 @@ def external_id_of(channel: str, payload: dict[str, Any]) -> str:
 
 
 def main() -> None:
+    if "--force" not in sys.argv:
+        print(
+            "Refusing to run: this overwrites the committed fixtures, which were\n"
+            "hand-edited to read like real customer messages. Regenerating restores\n"
+            "the templated LLM voice and loses the deliberate knowledge-base gap.\n"
+            "\n"
+            "Re-run with --force if that is genuinely what you want.",
+            file=sys.stderr,
+        )
+        raise SystemExit(1)
+
     client = Groq(api_key=get_settings().groq_api_key)
     total = sum(count for count, _, _ in CATEGORIES.values())
 

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ContactForm } from "@/components/contact-form";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8001";
 
 type Tenant = { slug: string; name: string; vertical: string };
 
