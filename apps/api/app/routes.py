@@ -3,6 +3,7 @@ and workspaces backed by committed fixtures are flagged `is_sample` so the UI
 can label them. Session-cookie auth is a deliberate post-MVP item (README)."""
 
 import json
+import logging
 import time
 import uuid
 from collections.abc import Generator, Iterator
@@ -45,6 +46,8 @@ from app.schemas import (
     StatsOut,
     TenantOut,
 )
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api")
 
@@ -311,7 +314,7 @@ def draft_message(message_id: uuid.UUID, force: bool = False) -> StreamingRespon
     citation gate.
     """
 
-    def gen() -> Iterator[str]:
+    def _draft_events(message_id: uuid.UUID, force: bool) -> Iterator[str]:
         with get_sessionmaker()() as db:
             message = db.get(Message, message_id)
             if message is None:
@@ -342,6 +345,17 @@ def draft_message(message_id: uuid.UUID, force: bool = False) -> StreamingRespon
                 time.sleep(0.024)
             yield _sse("citations", draft.citations)
             yield _sse("done", {"draft_id": str(draft.id), "content": draft.content})
+
+    def gen() -> Iterator[str]:
+        # Headers and the first event are already on the wire by the time the
+        # pipeline runs, so an exception here would otherwise just truncate the
+        # stream and leave the client spinning. Emit a terminal error event
+        # instead — the UI listens for it.
+        try:
+            yield from _draft_events(message_id, force)
+        except Exception as exc:  # noqa: BLE001 - the client needs a reason, whatever it is
+            logger.exception("draft failed for message %s", message_id)
+            yield _sse("error", {"detail": f"{type(exc).__name__}: {exc}"})
 
     return StreamingResponse(
         gen(),
